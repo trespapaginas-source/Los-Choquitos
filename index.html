@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Los Choquitos - Final Elite Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "ivory": "#F6F5F2",
+                        "arch-gray": "#2E2E2E",
+                        "charcoal": "#0B0B0B",
+                        "wood": "#C08A4D",
+                        "wood-hover": "#A67640",
+                        "olive": "#4F6F52",
+                        "warm-gray": "#B8B5B0",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F6F5F2;color: #0B0B0B;}
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: #0B0B0B;
+        }.glass-panel-light {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(11, 11, 11, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }.glass-panel-dark {
+            background: rgba(46, 46, 46, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }.reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .fade-enter {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal overflow-x-hidden">
+<nav class="fixed top-0 w-full z-50 bg-ivory/90 backdrop-blur-md border-b border-charcoal/5 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-2 select-none">
+<span class="material-symbols-outlined text-wood text-3xl">cottage</span>
+<span class="font-display text-2xl font-bold tracking-tight text-charcoal">Los Choquitos</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-charcoal hover:text-wood transition-colors" href="#inicio">Inicio</a>
+<a class="text-sm font-medium text-charcoal hover:text-wood transition-colors" href="#tour">Tour 360°</a>
+<a class="text-sm font-medium text-charcoal hover:text-wood transition-colors" href="#amenities">Servicios</a>
+<a class="text-sm font-medium text-charcoal hover:text-wood transition-colors" href="#precios">Precios</a>
+</div>
+<div class="hidden md:block">
+<a class="bg-wood hover:bg-wood-hover text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md hover:shadow-lg" href="https://api.whatsapp.com/send/?phone=3019769687" target="_blank">
+                        Reservar
+                    </a>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-charcoal hover:text-wood p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="inicio">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-ivory z-10"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="Luxury cabin exterior at night with warm lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlk3I59zdAxtj3CCRAYmn5rpS3mhld6UW3uL5HIh621OOQWXwARUV8Lj4pwLXHZISw1rubnox6xQpzIxAS_jh8GgLQvsfqo94hDjWs0RZ7CvP6t7G8vjp37261d7VmE-Fs5X8SqLxOedkGTb4mqdug5ixZZQAnmzS3mwy8fIfGOBdVyqPwVqCydk9XXcMmyq_LkybgF4JuwwbwFovyd2P9LyMYzmt3NcSCdyb3P9a2maUN8hEtgG13hIIy71KuddV44M3IH1IL');"></div>
+</div>
+<div class="relative z-20 container mx-auto px-4 text-center mt-10">
+<div class="animate-fade-in-up">
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 text-white drop-shadow-xl">
+                    Experiencias de Lujo en <br/><span class="text-wood italic">Sábana Grande</span>
+</h1>
+<p class="text-lg md:text-xl text-ivory/90 mb-8 max-w-2xl mx-auto font-light drop-shadow-md">
+                    Disfruta de la naturaleza con el confort que mereces. Un refugio exclusivo para eventos y descanso.
+                </p>
+<div class="flex flex-wrap justify-center gap-3 mb-10">
+<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-sm px-4 py-2 rounded-full border border-olive">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="text-sm font-medium">Capacidad 50 Pax</span>
+</div>
+<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-sm px-4 py-2 rounded-full border border-olive">
+<span class="material-symbols-outlined text-sm">bed</span>
+<span class="text-sm font-medium">8 Habitaciones</span>
+</div>
+<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-sm px-4 py-2 rounded-full border border-olive">
+<span class="material-symbols-outlined text-sm">pets</span>
+<span class="text-sm font-medium">Pet Friendly</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<a class="min-w-[180px] px-8 py-3.5 rounded-lg border-2 border-wood text-ivory hover:bg-wood hover:border-wood hover:text-white font-bold transition-all duration-300 backdrop-blur-sm bg-black/20" href="https://api.whatsapp.com/send/?phone=3019769687" target="_blank">
+                        Ver la cabaña
+                    </a>
+<a class="min-w-[180px] px-8 py-3.5 rounded-lg bg-wood text-white hover:bg-wood-hover font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2" href="https://api.whatsapp.com/send/?phone=3019769687" target="_blank">
+<span>Reservar / Cotizar</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-wood text-3xl">keyboard_arrow_down</span>
+</div>
+</section>
+<section class="py-24 bg-ivory relative reveal" id="tour">
+<div class="container mx-auto px-4 max-w-6xl">
+<div class="text-center mb-12">
+<span class="text-wood text-sm font-bold tracking-widest uppercase mb-2 block">Inmersión Total</span>
+<h2 class="text-3xl md:text-5xl font-display font-bold text-charcoal mb-4">Recorre nuestros espacios</h2>
+<div class="w-24 h-1 bg-wood mx-auto rounded-full"></div>
+</div>
+<div class="relative w-full aspect-video rounded-xl overflow-hidden border border-wood/20 shadow-xl group">
+<div class="absolute inset-0 bg-cover bg-center flex items-center justify-center group-hover:scale-105 transition-transform duration-700" data-alt="Wide angle interior shot of luxury cabin living room" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7zZxqoCy2-knESpmqarJN6CyvADb0DOSl_OspS8TV-_i1zRA1LfY7JSYCxQpZgvhnLW9OSzRP1qzCj099f1rd736Z19AhIAFXSuLjadOkEeCohEM4tZLFWBwIwvryEVtrw-wx5YQz_J0XqxRSprpjx8E-J_TinrMKqDJfxgt7fTj26HzCKmReTInzou6CgOBPgzLk6PYGyfo0BCRGlmOMscwo_A2bxs2ATDZ4yeDvLTi5Gn5jaihA75f9rqKpQbY5jidiNMFp');">
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
+<button class="bg-wood/90 hover:bg-wood text-white w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-sm transition-all hover:scale-110 shadow-lg mb-4">
+<span class="material-symbols-outlined text-4xl fill-1">360</span>
+</button>
+<p class="text-white font-medium text-lg drop-shadow-md">Click para iniciar el tour virtual</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-arch-gray relative reveal text-ivory" id="amenities">
+<div class="container mx-auto px-4 max-w-6xl">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-3">Comodidades Premium</h2>
+<p class="text-warm-gray max-w-md">Cada detalle ha sido pensado para ofrecerte una experiencia de confort y relajación inigualable.</p>
+</div>
+<div class="hidden md:flex items-center gap-2 text-wood hover:text-white transition-colors font-medium">
+                    Experiencia Elite
+                    <span class="material-symbols-outlined">star</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">pool</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Piscina Privada</h3>
+<p class="text-sm text-warm-gray">Piscina iluminada con área de solárium y tumbonas.</p>
+</div>
+<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">outdoor_grill</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Zona BBQ</h3>
+<p class="text-sm text-warm-gray">Kiosco equipado con asador profesional y comedor.</p>
+</div>
+<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">wifi</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Wi-Fi Starlink</h3>
+<p class="text-sm text-warm-gray">Internet de alta velocidad en toda la propiedad.</p>
+</div>
+<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">local_parking</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Parqueadero</h3>
+<p class="text-sm text-warm-gray">Espacio seguro para más de 10 vehículos.</p>
+</div>
+<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">speaker</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Sonido</h3>
+<p class="text-sm text-warm-gray">Sistema de sonido profesional para eventos.</p>
+</div>
+<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">kitchen</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Cocina Full</h3>
+<p class="text-sm text-warm-gray">Cocina integral con electrodomésticos de alta gama.</p>
+</div>
+<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">ac_unit</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">A/C</h3>
+<p class="text-sm text-warm-gray">Aire acondicionado en todas las habitaciones.</p>
+</div>
+<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
+<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-2xl">security</span>
+</div>
+<h3 class="text-xl font-display font-semibold mb-2 text-white">Seguridad</h3>
+<p class="text-sm text-warm-gray">Vigilancia 24/7 y acceso controlado.</p>
+</div>
+</div>
+<div class="mt-8 text-center lg:hidden">
+<button class="inline-flex items-center justify-center px-6 py-2.5 border border-white/20 rounded-full text-sm font-medium hover:bg-white/5 transition-colors text-white" id="view-more-btn" onclick="toggleAmenities()">
+<span>Ver más comodidades</span>
+<span class="material-symbols-outlined ml-2 text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-20 bg-ivory border-y border-charcoal/5 overflow-hidden">
+<div class="container mx-auto px-4 mb-8">
+<h2 class="text-2xl md:text-3xl font-display font-bold text-charcoal text-center">Momentos Inolvidables</h2>
+</div>
+<div class="relative w-full overflow-x-auto no-scrollbar flex gap-4 px-4 pb-4 snap-x">
+<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative snap-center group shadow-lg">
+<img alt="Wedding setup in the garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2-Ya-Aw7WsiT9sMxWbScW4zbJtw86P0ZG0dF1xlMVJOKCBmlT0m0tLBPwqb0WqRIDGDKjnZa6OhHBYPUpCea_ePZclHspK_tRcYOGWVWDWV68F3xJkCTaHi_AOy-bjrugxhD7Ugg5hnKHrbM_WwbqMamX_tMmpYux1ZY_fFa_BgLtNGMAxyxEziCE7jaa6mdBUpcKpGn4cravyUS8LuHUXpSpR7mEt2xXR1R0hq3cz3VL7GaJLfqXrcH-IR2-kBuUVsEHj6J"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
+<p class="text-white font-display text-xl">Bodas</p>
+</div>
+</div>
+<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative snap-center group shadow-lg">
+<img alt="Night party with lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzcFAqKr3Ut3NFHJ0-dMrTLDGF6W0tTzYdasD8CtBFWqysPCzOLnBau0nLTZlzhg59GD0TZloh5PJHeYl-nG7MeG7nMwnXWWeas6Ix8L_y1N-k904TU2g3rkKrZFJo13XPh4C8M_Mp4w1OIlZ8pjdVE7wGb5Vg6loXn0dWW9LjmEJv48fWrt18OdIIKbLIXyfHC0cTlAXTeqJfLaKa6GqSxAL-felRwDGOmA42BKUJGkpQhAuLPMgkzjZ35n4HXgq1PvT4Xu7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
+<p class="text-white font-display text-xl">Eventos Sociales</p>
+</div>
+</div>
+<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative snap-center group shadow-lg">
+<img alt="Luxury pool side view" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObGKf_CYmdmes8BQNFsjejsNuzP0Dyo5QA6nfbici2dAJqv2BE7Yz5t03UqH4rECUprIIF0AOhPwyNbp_jLbRIWUihtP0lgwGWZOT7wPseSe4zFHSPkJIzvuRn68-CjTh9cwKiiDMCkXuwxUdIIymimNKIc6ZhCOB787VSDiTLCEg2plRebvopx7TvvKWoylbW-jkim8yo3spkEiD0HFlKhPUSr6LgHoZeQfEQkOsdm-B2c869KkXrCxSa0FtBIxAxFLc4Grq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
+<p class="text-white font-display text-xl">Relax &amp; Confort</p>
+</div>
+</div>
+<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative snap-center group shadow-lg">
+<img alt="Group of friends celebrating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xjVbYM5oFjwk_0mRGrLrG3xj6DjSzC4gN5WTb9gepjmptbByqrIapo9-7V_MXXcij8ct7HweT0qAHJ2dFeYNH3zcgT40Y0l-4qiT-bbK_onvcyZxvhEeK0KD4yUu-okn2d7kzYgs_iN8bgHs6FwHkVqpWTUgwtf9GOfsXr-EgfDtmhUfmS6owtTCWfIJmgrmiWQxL6jwRBvDU72H9vy6OZslrCNScIEfwTxkt-GQBaovxv32zDP_WYM5I_ecluiSlBG2I0fB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
+<p class="text-white font-display text-xl">Celebraciones</p>
+</div>
+</div>
+<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative snap-center group shadow-lg">
+<img alt="Elegant dinner setting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw4muw6zZWg4M_5r2Njgiz0MaW5PhN3mY5KAs3QMZFLlHaEB_YTBQkJVwVBwAzf4PfDgyzBUe-ATXfY5J-SKAKjXzddCRnLTFCSuEqCIWA2D6Qg9y6Ul7gKJFygxdBRxdHY1dXBpBUxCEGtSNCp5onKDdwzydZWla92bCNcO4Yz8AJbIYfgtGD8ZAd6GlkVP8obk0LWdtGlWAdE7NWUraMjnle_GV4b_7L5gv7Hemzl7L9AYyxYNbgLgMbDLm1_mAPGIDiL5Py"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
+<p class="text-white font-display text-xl">Cenas Privadas</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-arch-gray reveal text-ivory">
+<div class="container mx-auto px-4 max-w-6xl">
+<h2 class="text-3xl font-display font-bold text-center text-white mb-16">Lo que dicen nuestros huéspedes</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg">
+<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
+<span class="material-symbols-outlined text-4xl">format_quote</span>
+</div>
+<div class="flex gap-1 text-wood mb-4 mt-2">
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+</div>
+<p class="text-warm-gray italic mb-6">"El lugar es simplemente espectacular. Celebramos nuestra boda aquí y cada rincón fue perfecto para las fotos. La atención fue 10/10."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuLAESDx8jY8fkKUn2An8xZCaFicZPlrHlAatrqyoAiyamfluBOIa7rL862ce9Ne1rebGbW4nsR8Tx1UR6BmTMq2FIQVI8M2L43xDIBV2j_zD-pkYA1NS07W475pAHfc8jZLuug_htrDRwvaNDAbzctDgjEOEYCeS_LeIFUCb5upOQjbEQpSC1dmK8Ot2Dapw8PKh6aqR7SUIj9W4Wnpo0fYplkYQXZ8iojBetJGU0ppTmScLwvGQuZ_t34lKiTqZpt7yDDQDV"/>
+</div>
+<div>
+<p class="font-bold text-white text-sm">Carolina M.</p>
+<p class="text-xs text-gray-400">Boda Privada</p>
+</div>
+</div>
+</div>
+<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg">
+<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
+<span class="material-symbols-outlined text-4xl">format_quote</span>
+</div>
+<div class="flex gap-1 text-wood mb-4 mt-2">
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+</div>
+<p class="text-warm-gray italic mb-6">"Un fin de semana increíble con la familia. La piscina y el kiosco BBQ fueron lo mejor. Definitivamente volveremos pronto."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzIcrgG1mRgZKUJeWFY3PnrJ6KzrY7Dp0K3J3gQvwFijXvUWl0Mw35oYOXFoSe-aUsZPI7TfS94nmvQWB5cs-vz4fbazD6CzSVscsHXuqDsZLDmYCgqCj7fY7xW6XgL7b2X2kf-vdHpnbWyxBcYVxIiZ8b668fQrKa_SgypxrkWQEnAS6jg7_ebRX9ev_JGTRGKkmJ36XMK6VBDctfKinmRpDP7oNupqY7Sqa7XFjQFF53hfaRyhQvp52CgmVA70fKqGaD09gv"/>
+</div>
+<div>
+<p class="font-bold text-white text-sm">Andrés P.</p>
+<p class="text-xs text-gray-400">Pasadía Familiar</p>
+</div>
+</div>
+</div>
+<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg">
+<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
+<span class="material-symbols-outlined text-4xl">format_quote</span>
+</div>
+<div class="flex gap-1 text-wood mb-4 mt-2">
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+<span class="material-symbols-outlined text-lg fill-1">star</span>
+</div>
+<p class="text-warm-gray italic mb-6">"La tranquilidad de Sábana Grande combinada con el lujo de esta cabaña es única. Muy recomendado para desconectarse."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-vdscIePq-kQ_o2uHICa-KoOz7WVmRaknYXriyiQGK6kt2sKxLlycjh0UZlF6xMgl1q-hfRpng5xUbASIcdLY32zk4S0QcriHXYW1ZtpMk3RolmkKlYajdEXDmfxUWzk4WTLdkIcZmKa3wUZJWVW1UKS-kKmvT2n8P162mSKcPnvKzy8-Ht3R0H20nAyGBMIDSRlBNB55dYvzN2h-ESv1CsG_SA-FOd4swdOwjxVqv2hVCI75EACSgbQN5icKDVK04Rx12eHo"/>
+</div>
+<div>
+<p class="font-bold text-white text-sm">Jorge L.</p>
+<p class="text-xs text-gray-400">Estadía Fin de Semana</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-ivory relative overflow-hidden reveal" id="precios">
+<div class="absolute top-0 right-0 w-96 h-96 bg-wood/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-olive/10 rounded-full filter blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="container mx-auto px-4 max-w-6xl relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div class="flex flex-col gap-8">
+<div>
+<span class="text-wood text-sm font-bold tracking-widest uppercase mb-2 block">Tarifas</span>
+<h2 class="text-4xl md:text-5xl font-display font-bold text-charcoal mb-6">Elige tu experiencia</h2>
+<p class="text-warm-gray text-lg">Ofrecemos opciones flexibles para que disfrutes de Los Choquitos a tu manera.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-wood/50 transition-all group shadow-sm">
+<h3 class="text-xl font-bold text-charcoal mb-2 group-hover:text-wood transition-colors">Pasadía</h3>
+<p class="text-sm text-warm-gray mb-4">Disfruta de nuestras instalaciones durante el día.</p>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="text-3xl font-bold text-charcoal">$40k</span>
+<span class="text-sm text-gray-500">/ persona</span>
+</div>
+<ul class="text-sm text-gray-600 space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> 9:00 AM - 5:00 PM</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Acceso a piscina y BBQ</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Zonas verdes</li>
+</ul>
+</div>
+<div class="bg-charcoal p-6 rounded-xl border border-wood/30 relative overflow-hidden shadow-lg">
+<div class="absolute top-0 right-0 bg-wood text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Popular</div>
+<h3 class="text-xl font-bold text-white mb-2">Estadía</h3>
+<p class="text-sm text-gray-300 mb-4">Pernocta en nuestras lujosas habitaciones.</p>
+<div class="flex items-baseline gap-1 mb-4">
+<span class="text-3xl font-bold text-wood">$70k</span>
+<span class="text-sm text-gray-400">/ persona</span>
+</div>
+<ul class="text-sm text-gray-300 space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Check-in 3 PM / Check-out 1 PM</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Acceso total 24h</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Habitaciones con A/C</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="glass-panel-light p-8 rounded-2xl shadow-xl relative" id="contacto">
+<h3 class="text-2xl font-display font-bold text-charcoal mb-6">Reserva tu fecha</h3>
+<form action="#" class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-sm font-medium text-charcoal" for="name">Nombre Completo</label>
+<input class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="name" placeholder="Tu nombre" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-charcoal" for="phone">Celular</label>
+<input class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="phone" placeholder="+57 ..." type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-sm font-medium text-charcoal" for="date">Fecha de evento</label>
+<input class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="date" type="date"/>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-charcoal" for="guests">No. Personas</label>
+<input class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="guests" placeholder="20" type="number"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-charcoal" for="type">Tipo de servicio</label>
+<select class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="type">
+<option class="text-charcoal">Pasadía ($40k)</option>
+<option class="text-charcoal">Estadía ($70k)</option>
+<option class="text-charcoal">Evento Privado (Cotizar)</option>
+</select>
+</div>
+<a class="w-full bg-wood hover:bg-wood-hover text-white font-bold py-4 rounded-lg shadow-md hover:shadow-lg transition-all mt-4 flex items-center justify-center gap-2" href="https://api.whatsapp.com/send/?phone=3019769687" target="_blank">
+<img alt="WhatsApp" class="w-5 h-5 brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5mXMv2LEQBz2kijwCnUDJtXw5UVRJT1UPWMIWybHHLQBUMbn0nTPw5qCkwWeIF9iJF5ETFAJvOpMiL3gM7lLztuAACY5e9QBFG7ngkAXor39j4mOHs95SMUeBqAKtPJO2U6g80BAEUg-lsimWyZu01sKKkXOxM2HVY3RweTKCVwZQ1ChY9m3XV7VovFQdcDGKhGVJAp011txbfe3cFdqklM_vdWvc5zImeoFCZ9ZVRvrbJ7ybHIFEqY_w-Xhb8SA0SfncK02W"/>
+                            Consultar disponibilidad
+                        </a>
+<p class="text-xs text-center text-warm-gray mt-4">Serás redirigido a WhatsApp para confirmar detalles.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-charcoal py-12 border-t border-white/10 text-ivory">
+<div class="container mx-auto px-4 max-w-7xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-4 select-none">
+<span class="material-symbols-outlined text-wood text-3xl">cottage</span>
+<span class="font-display text-2xl font-bold tracking-tight text-white">Los Choquitos</span>
+</div>
+<p class="text-warm-gray max-w-sm">
+                        Un espacio exclusivo en Sábana Grande, Atlántico. Diseñado para crear memorias inolvidables rodeado de naturaleza y lujo.
+                    </p>
+</div>
+<div>
+<h4 class="font-display font-bold text-white text-lg mb-4">Enlaces Rápidos</h4>
+<ul class="space-y-2">
+<li><a class="text-warm-gray hover:text-wood transition-colors" href="#inicio">Inicio</a></li>
+<li><a class="text-warm-gray hover:text-wood transition-colors" href="#tour">Tour 360°</a></li>
+<li><a class="text-warm-gray hover:text-wood transition-colors" href="#amenities">Servicios</a></li>
+<li><a class="text-warm-gray hover:text-wood transition-colors" href="#precios">Reservas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-display font-bold text-white text-lg mb-4">Ubicación</h4>
+<div class="w-full h-32 rounded-lg overflow-hidden bg-gray-800 relative mb-2">
+<iframe allowfullscreen="" class="opacity-80 hover:opacity-100 transition-opacity" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31336.21633534571!2d-74.7744886!3d10.7677561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d4a29a0c3b5%3A0x6b7774052309102!2sSabana%20Grande%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1716300000000!5m2!1ses!2sco" style="border:0;" width="100%">
+</iframe>
+</div>
+<p class="text-sm text-warm-gray">Sábana Grande, Atlántico</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
+<p class="text-gray-500 text-sm">© 2023 Los Choquitos. Todos los derechos reservados.</p>
+<div class="flex space-x-4 mt-4 md:mt-0">
+<a class="text-warm-gray hover:text-wood transition-colors" href="https://instagram.com" target="_blank"><span class="sr-only">Instagram</span>
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-warm-gray hover:text-wood transition-colors" href="#"><span class="sr-only">Facebook</span>
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth reveal animation on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+        // Toggle Amenities Logic
+        function toggleAmenities() {
+            const hiddenItems = document.querySelectorAll('.amenity-extra');
+            const btn = document.getElementById('view-more-btn');
+            const btnSpan = btn.querySelector('span:first-child');
+            const btnIcon = btn.querySelector('.material-symbols-outlined');
+            let isExpanding = btnSpan.innerText.includes('Ver más');
+            hiddenItems.forEach(item => {
+                if (isExpanding) {
+                    item.classList.remove('hidden');
+                    item.classList.add('fade-enter');
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('fade-enter');
+                }
+            });
+            if (isExpanding) {
+                btnSpan.innerText = 'Ver menos';
+                btnIcon.innerText = 'expand_less';
+            } else {
+                btnSpan.innerText = 'Ver más comodidades';
+                btnIcon.innerText = 'expand_more';
+            }
+        }
+    </script>
+
+</body></html>
