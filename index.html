@@ -163,19 +163,27 @@
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </div>
-
+    </nav>    
         <!-- Menú Móvil Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-charcoal/98 backdrop-blur-3xl z-[60] flex flex-col items-center justify-center space-y-10 transform translate-x-full transition-transform duration-500 lg:hidden">
-            <button id="close-mobile-menu" class="absolute top-8 right-8 text-ivory">
-                <span class="material-symbols-outlined text-4xl">close</span>
-            </button>
-            <a class="text-3xl font-display text-white" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
-            <a class="text-3xl font-display text-white" href="#tour" onclick="toggleMobileMenu()">Tour 360°</a>
-            <a class="text-3xl font-display text-white" href="#amenities" onclick="toggleMobileMenu()">Amenidades</a>
-            <a class="text-3xl font-display text-white" href="#precios" onclick="toggleMobileMenu()">Tarifas</a>
-            <a class="btn-luxury text-white px-12 py-5 rounded-full text-lg font-bold" href="#booking-form-area" onclick="toggleMobileMenu()">Reservar</a>
-        </div>
-    </nav>
+        <div id="mobile-menu" 
+     class="fixed top-0 left-0 w-full bg-[#1a1a1a]/95 backdrop-blur-xl border-b border-white/10 z-[100] flex flex-col items-center justify-start pt-20 pb-10 space-y-6 transform -translate-y-full transition-transform duration-500 shadow-2xl lg:hidden">
+    
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-ivory/80 hover:text-wood transition-colors">
+        <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    
+    <div class="flex flex-col items-center space-y-5">
+        <a class="text-lg font-display text-white hover:text-wood transition-colors" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+        <a class="text-lg font-display text-white hover:text-wood transition-colors" href="#tour" onclick="toggleMobileMenu()">Tour 360°</a>
+        <a class="text-lg font-display text-white hover:text-wood transition-colors" href="#amenities" onclick="toggleMobileMenu()">Amenidades</a>
+        <a class="text-lg font-display text-white hover:text-wood transition-colors" href="#precios" onclick="toggleMobileMenu()">Tarifas</a>
+    </div>
+
+    <a class="btn-luxury text-white px-8 py-3 rounded-full text-sm font-bold shadow-lg mt-2" href="#booking-form-area" onclick="toggleMobileMenu()">
+        Reservar Ahora
+    </a>
+</div>
+    
 
     <main>
         <!-- Hero Section -->
@@ -517,13 +525,19 @@
         }
 
         // Mobile Menu
-        const mobileMenu = document.getElementById('mobile-menu');
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            document.body.style.overflow = mobileMenu.classList.contains('translate-x-full') ? '' : 'hidden';
-        }
-        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-        document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
+        // Mobile Menu (ACTUALIZADO PARA ANIMACIÓN VERTICAL)
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMobileMenu() {
+    // Cambiamos 'translate-x-full' por '-translate-y-full' para que baje de arriba
+    mobileMenu.classList.toggle('-translate-y-full');
+    
+    // Opcional: Bloquear scroll del fondo si quieres, o dejarlo libre
+    // document.body.style.overflow = mobileMenu.classList.contains('-translate-y-full') ? '' : 'hidden';
+}
+
+document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
 
         // Toggle Amenities (Cerrado por defecto)
         const toggleBtn = document.getElementById('toggle-amenities');
