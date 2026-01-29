@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Los Choquitos - Final Integrated Luxury Landing</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light scroll-smooth" lang="es" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Los Choquitos | Experiencia de Lujo en Sábana Grande</title>
+    
+    <!-- Meta Tags para SEO y Social Media -->
+    <meta name="description" content="Descubre Los Choquitos en Sábana Grande. Cabaña de lujo para eventos, bodas y descanso exclusivo con piscina iluminada, zona de juegos y tour 360°.">
+    
+    <!-- Librerías Externas -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Configuración Tailwind -->
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -27,9 +35,10 @@
                         "body": ["Inter", "sans-serif"],
                     },
                     animation: {
-                        'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'breathe': 'breathe 3s ease-in-out infinite',
+                        'scroll': 'scroll 45s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'breathe': 'breathe 4s ease-in-out infinite',
+                        'shake': 'shake 0.4s ease-in-out',
                     },
                     keyframes: {
                         scroll: {
@@ -37,211 +46,172 @@
                             '100%': { transform: 'translateX(-50%)' },
                         },
                         fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         breathe: {
-                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 4px 6px -1px rgba(192, 138, 77, 0.2), 0 2px 4px -1px rgba(192, 138, 77, 0.1)' },
-                            '50%': { transform: 'scale(1.02)', boxShadow: '0 20px 25px -5px rgba(192, 138, 77, 0.4), 0 10px 10px -5px rgba(192, 138, 77, 0.2)' },
+                            '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                            '50%': { transform: 'scale(1.02)', filter: 'brightness(1.05)' },
+                        },
+                        shake: {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '25%': { transform: 'translateX(-6px)' },
+                            '75%': { transform: 'translateX(6px)' },
                         }
                     }
                 },
             },
         }
     </script>
-<style>
-        html {
-            scroll-behavior: smooth;
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F6F5F2; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .glass-header {
+            background: rgba(11, 11, 11, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F6F5F2;color: #0B0B0B;
+        
+        .header-shrink {
+            height: 4.5rem !important;
+            background: rgba(11, 11, 11, 0.98);
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            color: #0B0B0B;
-        }
-        .glass-panel-light {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .glass-panel-dark {
-            background: rgba(46, 46, 46, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .glass-card-ivory {
-            background: rgba(246, 245, 242, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(192, 138, 77, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-        }
-        .btn-glass-gold {
-            background: linear-gradient(135deg, rgba(192, 138, 77, 0.9), rgba(166, 118, 64, 0.9));
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 4px 15px rgba(192, 138, 77, 0.3);
-        }
-        .btn-glass-gold:hover {
-            background: linear-gradient(135deg, rgba(192, 138, 77, 1), rgba(166, 118, 64, 1));
-            box-shadow: 0 6px 20px rgba(192, 138, 77, 0.5);
-            transform: translateY(-1px);
-        }
-        .icon-glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .btn-luxury {
+            background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .icon-glass:hover {
-            background: rgba(192, 138, 77, 0.2);
-            border-color: rgba(192, 138, 77, 0.5);
-            transform: scale(1.1);
+        
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(192, 138, 77, 0.4);
         }
-        .reveal {
+
+        .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.active {
+
+        .reveal-on-scroll.active {
             opacity: 1;
             transform: translateY(0);
         }
-        .no-scrollbar::-webkit-scrollbar {
+
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .input-error {
+            border-color: #ef4444 !important;
+            background-color: rgba(239, 68, 68, 0.05) !important;
+        }
+
+        /* Lógica de ocultamiento de amenidades */
+        .hidden-amenity {
             display: none;
+            opacity: 0;
+            transform: translateY(15px);
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+
+        .show-amenity {
+            display: flex !important;
+            animation: slideFadeIn 0.6s ease forwards;
         }
-        .fade-enter {
-            animation: fadeIn 0.5s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+
+        @keyframes slideFadeIn {
             to { opacity: 1; transform: translateY(0); }
         }
-        .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+        /* Estilo para tarjetas clicables */
+        .service-card {
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @media (max-width: 640px) {
-            .mobile-tour-height {
-                aspect-ratio: auto;
-                height: 80vh;
-            }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.12);
         }
     </style>
 </head>
-<body class="bg-ivory text-charcoal overflow-x-hidden">
-<nav class="fixed top-0 w-full z-50 bg-gradient-to-b from-black via-charcoal/95 to-charcoal/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300 shadow-lg">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-24">
-<div class="flex-shrink-0 select-none">
-<a href="#inicio">
-<img alt="Los Choquitos Logo" class="h-24 w-auto object-contain brightness-100" src="https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png"/>
-</a>
-</div>
-<div class="hidden lg:flex items-center space-x-8">
-<a class="text-sm font-medium text-ivory/80 hover:text-wood transition-colors tracking-wide" href="#inicio">Inicio</a>
-<a class="text-sm font-medium text-ivory/80 hover:text-wood transition-colors tracking-wide" href="#tour">Tour 360°</a>
-<a class="text-sm font-medium text-ivory/80 hover:text-wood transition-colors tracking-wide" href="#amenities">Servicios</a>
-<a class="text-sm font-medium text-ivory/80 hover:text-wood transition-colors tracking-wide" href="#precios">Experiencias</a>
-</div>
-<div class="hidden lg:flex items-center gap-4">
-<div class="flex items-center gap-2 pr-4 border-r border-white/10">
-<a class="icon-glass w-9 h-9 rounded-full flex items-center justify-center text-ivory group" href="https://wa.me/573019769687" target="_blank" title="WhatsApp">
-<span class="material-symbols-outlined text-lg group-hover:text-green-400 transition-colors">chat</span>
-</a>
-<a class="icon-glass w-9 h-9 rounded-full flex items-center justify-center text-ivory group" href="https://www.instagram.com/cabanaloschoquitos/" target="_blank" title="Instagram">
-<svg class="h-4 w-4 fill-current group-hover:text-pink-400 transition-colors" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-</a>
-<a class="icon-glass w-9 h-9 rounded-full flex items-center justify-center text-ivory group" href="https://facebook.com" target="_blank" title="Facebook">
-<svg class="h-4 w-4 fill-current group-hover:text-blue-400 transition-colors" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-</a>
-</div>
-<a class="btn-glass-gold text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all" href="#booking-form">
-                    Reserva tu experiencia
-                </a>
-</div>
-<div class="lg:hidden flex items-center">
-<button class="text-ivory hover:text-wood p-2 transition-colors" id="mobile-menu-btn">
-<span class="material-symbols-outlined text-3xl">menu</span>
-</button>
-</div>
-</div>
-</div>
-<div class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col justify-center items-center" id="mobile-menu">
-<button class="absolute top-6 right-6 text-ivory hover:text-wood p-2" id="close-mobile-menu">
-<span class="material-symbols-outlined text-4xl">close</span>
-</button>
-<div class="flex flex-col items-center space-y-8 text-center p-4">
-<img alt="Los Choquitos Logo" class="h-20 w-auto object-contain mb-6" src="https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png"/>
-<a class="text-2xl font-display font-medium text-ivory hover:text-wood transition-colors" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
-<a class="text-2xl font-display font-medium text-ivory hover:text-wood transition-colors" href="#tour" onclick="toggleMobileMenu()">Tour 360°</a>
-<a class="text-2xl font-display font-medium text-ivory hover:text-wood transition-colors" href="#amenities" onclick="toggleMobileMenu()">Servicios</a>
-<a class="text-2xl font-display font-medium text-ivory hover:text-wood transition-colors" href="#precios" onclick="toggleMobileMenu()">Experiencias</a>
-<a class="btn-glass-gold text-white px-8 py-3 rounded-full text-lg font-bold transition-all mt-4" href="#booking-form" onclick="toggleMobileMenu()">
-                Reserva tu experiencia
+<body class="bg-ivory text-charcoal antialiased overflow-x-hidden">
+
+    <!-- Navegación Premium -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 glass-header h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
+            <a href="#inicio" class="transition-transform duration-300 hover:scale-105">
+                <img alt="Los Choquitos Logo" class="h-16 w-auto object-contain" src="https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png"/>
             </a>
-<div class="flex items-center gap-6 mt-8 pt-8 border-t border-white/10">
-<a class="icon-glass w-12 h-12 rounded-full flex items-center justify-center text-ivory" href="https://wa.me/573019769687" target="_blank">
-<span class="material-symbols-outlined text-2xl">chat</span>
-</a>
-<a class="icon-glass w-12 h-12 rounded-full flex items-center justify-center text-ivory" href="https://www.instagram.com/cabanaloschoquitos/" target="_blank">
-<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-</a>
-<a class="icon-glass w-12 h-12 rounded-full flex items-center justify-center text-ivory" href="https://facebook.com" target="_blank">
-<svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.791-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</nav>
-<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="inicio">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-ivory z-10"></div>
-<div class="w-full h-full bg-cover bg-center" data-alt="Luxury cabin exterior at night with warm lighting" style="background-image: url('https://i.ibb.co/HfsPSsnv/Gemini-Generated-Image-qq5zn8qq5zn8qq5z.png');"></div>
-</div>
-<div class="relative z-20 container mx-auto px-4 text-center mt-10">
-<div class="animate-fade-in-up">
-<h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl">
-                Experiencias de Lujo en <br/><span class="text-wood italic">Sábana Grande</span>
-</h1>
-<p class="text-lg md:text-xl text-ivory/90 mb-8 max-w-2xl mx-auto font-light drop-shadow-md">
-                Disfruta de la naturaleza con el confort que mereces. Un refugio exclusivo para eventos y descanso.
-            </p>
-<div class="flex flex-wrap justify-center gap-3 mb-10">
-<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-md px-4 py-2 rounded-full border border-olive/30 shadow-lg">
-<span class="material-symbols-outlined text-sm">groups</span>
-<span class="text-sm font-medium">Capacidad 50 Pax</span>
-</div>
-<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-md px-4 py-2 rounded-full border border-olive/30 shadow-lg">
-<span class="material-symbols-outlined text-sm">bed</span>
-<span class="text-sm font-medium">8 Habitaciones</span>
-</div>
-<div class="flex items-center gap-2 bg-olive/90 text-ivory backdrop-blur-md px-4 py-2 rounded-full border border-olive/30 shadow-lg">
-<span class="material-symbols-outlined text-sm">pets</span>
-<span class="text-sm font-medium">Pet Friendly</span>
-</div>
-</div>
-<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-<a class="min-w-[180px] px-8 py-3.5 rounded-full border border-white/30 text-ivory hover:bg-white/10 hover:border-white font-bold transition-all duration-300 backdrop-blur-sm bg-black/20" href="#tour">
-                    Ver la cabaña
+
+            <div class="hidden lg:flex items-center space-x-10">
+                <a class="text-sm font-semibold text-ivory/80 hover:text-wood transition-colors" href="#inicio">Inicio</a>
+                <a class="text-sm font-semibold text-ivory/80 hover:text-wood transition-colors" href="#tour">Tour 360°</a>
+                <a class="text-sm font-semibold text-ivory/80 hover:text-wood transition-colors" href="#amenities">Amenidades</a>
+                <a class="text-sm font-semibold text-ivory/80 hover:text-wood transition-colors" href="#precios">Tarifas</a>
+                <a class="btn-luxury text-white px-8 py-3 rounded-full text-xs font-bold shadow-lg uppercase tracking-widest" href="#booking-form-area">
+                    Reservar ahora
                 </a>
-<a class="btn-glass-gold min-w-[180px] px-8 py-3.5 rounded-full text-white font-bold transition-all duration-300 flex items-center justify-center gap-2" href="#precios">
-<span>Reservar / Cotizar</span>
-<span class="material-symbols-outlined text-lg">arrow_downward</span>
-</a>
-</div>
-</div>
-</div>
-<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-<span class="material-symbols-outlined text-wood text-3xl">keyboard_arrow_down</span>
-</div>
-</section>
-<section class="py-24 bg-ivory relative reveal" id="tour">
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-ivory p-2">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Menú Móvil Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-charcoal/98 backdrop-blur-3xl z-[60] flex flex-col items-center justify-center space-y-10 transform translate-x-full transition-transform duration-500 lg:hidden">
+            <button id="close-mobile-menu" class="absolute top-8 right-8 text-ivory">
+                <span class="material-symbols-outlined text-4xl">close</span>
+            </button>
+            <a class="text-3xl font-display text-white" href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+            <a class="text-3xl font-display text-white" href="#tour" onclick="toggleMobileMenu()">Tour 360°</a>
+            <a class="text-3xl font-display text-white" href="#amenities" onclick="toggleMobileMenu()">Amenidades</a>
+            <a class="text-3xl font-display text-white" href="#precios" onclick="toggleMobileMenu()">Tarifas</a>
+            <a class="btn-luxury text-white px-12 py-5 rounded-full text-lg font-bold" href="#booking-form-area" onclick="toggleMobileMenu()">Reservar</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-ivory z-10"></div>
+                <img src="https://i.ibb.co/HfsPSsnv/Gemini-Generated-Image-qq5zn8qq5zn8qq5z.png" 
+                     alt="Exterior nocturno Cabaña Los Choquitos" 
+                     class="w-full h-full object-cover scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            </div>
+
+            <div class="relative z-20 container mx-auto px-4 text-center mt-12 animate-fade-in-up">
+                <span class="inline-block px-5 py-2 rounded-full bg-wood/20 border border-wood/30 text-wood text-xs font-bold uppercase tracking-[0.4em] mb-8">
+                    Sábana Grande · Atlántico
+                </span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-[1.1]">
+                    Naturaleza y <span class="text-wood italic">Lujo</span> <br>en Armonía
+                </h1>
+                <p class="text-lg md:text-xl text-ivory/90 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    Te damos la bienvenida a un refugio pensado para el descanso genuino. Un espacio privado donde cada detalle ha sido cuidado para tu bienestar.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#booking-form-area" class="btn-luxury px-12 py-5 rounded-full text-white font-bold shadow-2xl flex items-center justify-center gap-3">
+                        Reservar Mi Estancia
+                        <span class="material-symbols-outlined">calendar_today</span>
+                    </a>
+                    <a href="#tour" class="px-12 py-5 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold backdrop-blur-md transition-all">
+                        Explorar la Cabaña
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tour Virtual 360 -->
+        <section class="py-24 bg-ivory relative reveal" id="tour">
 <div class="container mx-auto px-4 max-w-6xl">
 <div class="text-center mb-10">
 <span class="text-wood text-sm font-bold tracking-widest uppercase mb-2 block">Inmersión Total</span>
@@ -256,336 +226,236 @@
 </div>
 </div>
 </section>
-<section class="py-24 bg-arch-gray relative reveal text-ivory" id="amenities">
-<div class="container mx-auto px-4 max-w-6xl">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-<div>
-<h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-3">Comodidades Premium</h2>
-<p class="text-warm-gray max-w-md">Cada detalle ha sido pensado para ofrecerte una experiencia de confort y relajación inigualable.</p>
-</div>
-<div class="hidden md:flex items-center gap-2 text-wood hover:text-white transition-colors font-medium">
-                Experiencia Elite
-                <span class="material-symbols-outlined">star</span>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">pool</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Piscina Privada</h3>
-<p class="text-sm text-warm-gray">Piscina iluminada con área de solárium y tumbonas.</p>
-</div>
-<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">outdoor_grill</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Zona BBQ</h3>
-<p class="text-sm text-warm-gray">Kiosco equipado con asador profesional y comedor.</p>
-</div>
-<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">wifi</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Wi-Fi Starlink</h3>
-<p class="text-sm text-warm-gray">Internet de alta velocidad en toda la propiedad.</p>
-</div>
-<div class="glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">local_parking</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Parqueadero</h3>
-<p class="text-sm text-warm-gray">Espacio seguro para más de 10 vehículos.</p>
-</div>
-<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">speaker</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Sonido</h3>
-<p class="text-sm text-warm-gray">Sistema de sonido profesional para eventos.</p>
-</div>
-<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">kitchen</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Cocina Full</h3>
-<p class="text-sm text-warm-gray">Cocina integral con electrodomésticos de alta gama.</p>
-</div>
-<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">ac_unit</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">A/C</h3>
-<p class="text-sm text-warm-gray">Aire acondicionado en todas las habitaciones.</p>
-</div>
-<div class="amenity-extra hidden lg:block glass-panel-dark p-6 rounded-xl hover:border-wood/50 transition-colors group">
-<div class="w-12 h-12 bg-wood/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-wood text-wood group-hover:text-white transition-colors">
-<span class="material-symbols-outlined text-2xl">security</span>
-</div>
-<h3 class="text-xl font-display font-semibold mb-2 text-white">Seguridad</h3>
-<p class="text-sm text-warm-gray">Vigilancia 24/7 y acceso controlado.</p>
-</div>
-</div>
-<div class="mt-8 text-center lg:hidden">
-<button class="inline-flex items-center justify-center px-6 py-2.5 border border-white/20 rounded-full text-sm font-medium hover:bg-white/5 transition-colors text-white" id="view-more-btn" onclick="toggleAmenities()">
-<span>Ver más comodidades</span>
-<span class="material-symbols-outlined ml-2 text-sm">expand_more</span>
-</button>
-</div>
-</div>
-</section>
-<section class="py-20 bg-ivory border-y border-charcoal/5 overflow-hidden">
-<div class="container mx-auto px-4 mb-8">
-<h2 class="text-3xl md:text-5xl font-display font-bold text-charcoal text-center">Momentos Inolvidables</h2>
-</div>
-<div class="marquee-container w-full overflow-hidden relative">
-<div class="flex gap-6 w-max animate-scroll">
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Wedding setup in the garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2-Ya-Aw7WsiT9sMxWbScW4zbJtw86P0ZG0dF1xlMVJOKCBmlT0m0tLBPwqb0WqRIDGDKjnZa6OhHBYPUpCea_ePZclHspK_tRcYOGWVWDWV68F3xJkCTaHi_AOy-bjrugxhD7Ugg5hnKHrbM_WwbqMamX_tMmpYux1ZY_fFa_BgLtNGMAxyxEziCE7jaa6mdBUpcKpGn4cravyUS8LuHUXpSpR7mEt2xXR1R0hq3cz3VL7GaJLfqXrcH-IR2-kBuUVsEHj6J"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Bodas</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Night party with lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzcFAqKr3Ut3NFHJ0-dMrTLDGF6W0tTzYdasD8CtBFWqysPCzOLnBau0nLTZlzhg59GD0TZloh5PJHeYl-nG7MeG7nMwnXWWeas6Ix8L_y1N-k904TU2g3rkKrZFJo13XPh4C8M_Mp4w1OIlZ8pjdVE7wGb5Vg6loXn0dWW9LjmEJv48fWrt18OdIIKbLIXyfHC0cTlAXTeqJfLaKa6GqSxAL-felRwDGOmA42BKUJGkpQhAuLPMgkzjZ35n4HXgq1PvT4Xu7"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Eventos Sociales</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Luxury pool side view" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObGKf_CYmdmes8BQNFsjejsNuzP0Dyo5QA6nfbici2dAJqv2BE7Yz5t03UqH4rECUprIIF0AOhPwyNbp_jLbRIWUihtP0lgwGWZOT7wPseSe4zFHSPkJIzvuRn68-CjTh9cwKiiDMCkXuwxUdIIymimNKIc6ZhCOB787VSDiTLCEg2plRebvopx7TvvKWoylbW-jkim8yo3spkEiD0HFlKhPUSr6LgHoZeQfEQkOsdm-B2c869KkXrCxSa0FtBIxAxFLc4Grq"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Relax &amp; Confort</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Group of friends celebrating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xjVbYM5oFjwk_0mRGrLrG3xj6DjSzC4gN5WTb9gepjmptbByqrIapo9-7V_MXXcij8ct7HweT0qAHJ2dFeYNH3zcgT40Y0l-4qiT-bbK_onvcyZxvhEeK0KD4yUu-okn2d7kzYgs_iN8bgHs6FwHkVqpWTUgwtf9GOfsXr-EgfDtmhUfmS6owtTCWfIJmgrmiWQxL6jwRBvDU72H9vy6OZslrCNScIEfwTxkt-GQBaovxv32zDP_WYM5I_ecluiSlBG2I0fB"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Celebraciones</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Elegant dinner setting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw4muw6zZWg4M_5r2Njgiz0MaW5PhN3mY5KAs3QMZFLlHaEB_YTBQkJVwVBwAzf4PfDgyzBUe-ATXfY5J-SKAKjXzddCRnLTFCSuEqCIWA2D6Qg9y6Ul7gKJFygxdBRxdHY1dXBpBUxCEGtSNCp5onKDdwzydZWla92bCNcO4Yz8AJbIYfgtGD8ZAd6GlkVP8obk0LWdtGlWAdE7NWUraMjnle_GV4b_7L5gv7Hemzl7L9AYyxYNbgLgMbDLm1_mAPGIDiL5Py"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Cenas Privadas</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Wedding setup in the garden" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2-Ya-Aw7WsiT9sMxWbScW4zbJtw86P0ZG0dF1xlMVJOKCBmlT0m0tLBPwqb0WqRIDGDKjnZa6OhHBYPUpCea_ePZclHspK_tRcYOGWVWDWV68F3xJkCTaHi_AOy-bjrugxhD7Ugg5hnKHrbM_WwbqMamX_tMmpYux1ZY_fFa_BgLtNGMAxyxEziCE7jaa6mdBUpcKpGn4cravyUS8LuHUXpSpR7mEt2xXR1R0hq3cz3VL7GaJLfqXrcH-IR2-kBuUVsEHj6J"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Bodas</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Night party with lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzcFAqKr3Ut3NFHJ0-dMrTLDGF6W0tTzYdasD8CtBFWqysPCzOLnBau0nLTZlzhg59GD0TZloh5PJHeYl-nG7MeG7nMwnXWWeas6Ix8L_y1N-k904TU2g3rkKrZFJo13XPh4C8M_Mp4w1OIlZ8pjdVE7wGb5Vg6loXn0dWW9LjmEJv48fWrt18OdIIKbLIXyfHC0cTlAXTeqJfLaKa6GqSxAL-felRwDGOmA42BKUJGkpQhAuLPMgkzjZ35n4HXgq1PvT4Xu7"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Eventos Sociales</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Luxury pool side view" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObGKf_CYmdmes8BQNFsjejsNuzP0Dyo5QA6nfbici2dAJqv2BE7Yz5t03UqH4rECUprIIF0AOhPwyNbp_jLbRIWUihtP0lgwGWZOT7wPseSe4zFHSPkJIzvuRn68-CjTh9cwKiiDMCkXuwxUdIIymimNKIc6ZhCOB787VSDiTLCEg2plRebvopx7TvvKWoylbW-jkim8yo3spkEiD0HFlKhPUSr6LgHoZeQfEQkOsdm-B2c869KkXrCxSa0FtBIxAxFLc4Grq"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Relax &amp; Confort</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Group of friends celebrating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xjVbYM5oFjwk_0mRGrLrG3xj6DjSzC4gN5WTb9gepjmptbByqrIapo9-7V_MXXcij8ct7HweT0qAHJ2dFeYNH3zcgT40Y0l-4qiT-bbK_onvcyZxvhEeK0KD4yUu-okn2d7kzYgs_iN8bgHs6FwHkVqpWTUgwtf9GOfsXr-EgfDtmhUfmS6owtTCWfIJmgrmiWQxL6jwRBvDU72H9vy6OZslrCNScIEfwTxkt-GQBaovxv32zDP_WYM5I_ecluiSlBG2I0fB"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Celebraciones</p>
-</div>
-</div>
-<div class="min-w-[300px] h-[400px] rounded-lg overflow-hidden relative group shadow-lg">
-<img alt="Elegant dinner setting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw4muw6zZWg4M_5r2Njgiz0MaW5PhN3mY5KAs3QMZFLlHaEB_YTBQkJVwVBwAzf4PfDgyzBUe-ATXfY5J-SKAKjXzddCRnLTFCSuEqCIWA2D6Qg9y6Ul7gKJFygxdBRxdHY1dXBpBUxCEGtSNCp5onKDdwzydZWla92bCNcO4Yz8AJbIYfgtGD8ZAd6GlkVP8obk0LWdtGlWAdE7NWUraMjnle_GV4b_7L5gv7Hemzl7L9AYyxYNbgLgMbDLm1_mAPGIDiL5Py"/>
-<div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent flex items-end p-6">
-<p class="text-white font-display text-xl">Cenas Privadas</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-arch-gray reveal text-ivory">
-<div class="container mx-auto px-4 max-w-6xl">
-<h2 class="text-3xl font-display font-bold text-center text-white mb-16">Lo que dicen nuestros huéspedes</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg hover:border-wood/30 transition-colors">
-<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
-<span class="material-symbols-outlined text-4xl">format_quote</span>
-</div>
-<div class="flex gap-1 text-wood mb-4 mt-2">
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-</div>
-<p class="text-warm-gray italic mb-6">"El lugar es simplemente espectacular. Celebramos nuestra boda aquí y cada rincón fue perfecto para las fotos. La atención fue 10/10."</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
-<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuLAESDx8jY8fkKUn2An8xZCaFicZPlrHlAatrqyoAiyamfluBOIa7rL862ce9Ne1rebGbW4nsR8Tx1UR6BmTMq2FIQVI8M2L43xDIBV2j_zD-pkYA1NS07W475pAHfc8jZLuug_htrDRwvaNDAbzctDgjEOEYCeS_LeIFUCb5upOQjbEQpSC1dmK8Ot2Dapw8PKh6aqR7SUIj9W4Wnpo0fYplkYQXZ8iojBetJGU0ppTmScLwvGQuZ_t34lKiTqZpt7yDDQDV"/>
-</div>
-<div>
-<p class="font-bold text-white text-sm">Carolina M.</p>
-<p class="text-xs text-gray-400">Boda Privada</p>
-</div>
-</div>
-</div>
-<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg hover:border-wood/30 transition-colors">
-<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
-<span class="material-symbols-outlined text-4xl">format_quote</span>
-</div>
-<div class="flex gap-1 text-wood mb-4 mt-2">
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-</div>
-<p class="text-warm-gray italic mb-6">"Un fin de semana increíble con la familia. La piscina y el kiosco BBQ fueron lo mejor. Definitivamente volveremos pronto."</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
-<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzIcrgG1mRgZKUJeWFY3PnrJ6KzrY7Dp0K3J3gQvwFijXvUWl0Mw35oYOXFoSe-aUsZPI7TfS94nmvQWB5cs-vz4fbazD6CzSVscsHXuqDsZLDmYCgqCj7fY7xW6XgL7b2X2kf-vdHpnbWyxBcYVxIiZ8b668fQrKa_SgypxrkWQEnAS6jg7_ebRX9ev_JGTRGKkmJ36XMK6VBDctfKinmRpDP7oNupqY7Sqa7XFjQFF53hfaRyhQvp52CgmVA70fKqGaD09gv"/>
-</div>
-<div>
-<p class="font-bold text-white text-sm">Andrés P.</p>
-<p class="text-xs text-gray-400">Pasadía Familiar</p>
-</div>
-</div>
-</div>
-<div class="bg-charcoal/30 p-8 rounded-xl border border-white/5 relative shadow-lg hover:border-wood/30 transition-colors">
-<div class="absolute -top-4 left-8 text-wood bg-arch-gray px-2 rounded-full">
-<span class="material-symbols-outlined text-4xl">format_quote</span>
-</div>
-<div class="flex gap-1 text-wood mb-4 mt-2">
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-<span class="material-symbols-outlined text-lg fill-1">star</span>
-</div>
-<p class="text-warm-gray italic mb-6">"La tranquilidad de Sábana Grande combinada con el lujo de esta cabaña es única. Muy recomendado para desconectarse."</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gray-600 rounded-full overflow-hidden">
-<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-vdscIePq-kQ_o2uHICa-KoOz7WVmRaknYXriyiQGK6kt2sKxLlycjh0UZlF6xMgl1q-hfRpng5xUbASIcdLY32zk4S0QcriHXYW1ZtpMk3RolmkKlYajdEXDmfxUWzk4WTLdkIcZmKa3wUZJWVW1UKS-kKmvT2n8P162mSKcPnvKzy8-Ht3R0H20nAyGBMIDSRlBNB55dYvzN2h-ESv1CsG_SA-FOd4swdOwjxVqv2hVCI75EACSgbQN5icKDVK04Rx12eHo"/>
-</div>
-<div>
-<p class="font-bold text-white text-sm">Jorge L.</p>
-<p class="text-xs text-gray-400">Estadía Fin de Semana</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-ivory relative overflow-hidden reveal" id="precios">
-<div class="absolute top-0 right-0 w-96 h-96 bg-wood/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-<div class="absolute bottom-0 left-0 w-96 h-96 bg-olive/10 rounded-full filter blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-<div class="container mx-auto px-4 max-w-7xl relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-<div class="flex flex-col gap-8">
-<div>
-<span class="text-wood text-sm font-bold tracking-widest uppercase mb-2 block">Tarifas y Paquetes</span>
-<h2 class="text-4xl md:text-5xl font-display font-bold text-charcoal mb-6">Elige tu experiencia</h2>
-<p class="text-warm-gray text-lg">Ofrecemos opciones flexibles para que disfrutes de Los Choquitos a tu manera.</p>
-</div>
-<div class="grid grid-cols-1 gap-5">
-<div class="glass-card-ivory p-6 rounded-xl hover:border-wood/30 transition-all group">
-<div class="flex justify-between items-start">
-<div>
-<h3 class="text-xl font-bold text-charcoal mb-1 group-hover:text-wood transition-colors">Pasadía</h3>
-<p class="text-sm text-gray-500">Disfruta de nuestras instalaciones durante el día.</p>
-</div>
-<div class="text-right">
-<span class="text-2xl font-bold text-charcoal">$40k</span>
-<span class="text-xs text-gray-500 block">/ persona</span>
-</div>
-</div>
-<ul class="text-sm text-gray-600 space-y-2 mt-4 border-t border-gray-200/50 pt-4">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> 9:00 AM - 5:00 PM</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Acceso a Piscina, BBQ, Cancha y Juegos</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">info</span> No incluye habitaciones</li>
-</ul>
-</div>
-<div class="glass-card-ivory p-6 rounded-xl hover:border-wood/30 transition-all group relative overflow-hidden ring-1 ring-wood/20">
-<div class="absolute top-0 right-0 bg-wood text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
-<div class="flex justify-between items-start">
-<div>
-<h3 class="text-xl font-bold text-charcoal mb-1 group-hover:text-wood transition-colors">Estadía</h3>
-<p class="text-sm text-gray-500">Pernocta en nuestras lujosas habitaciones.</p>
-</div>
-<div class="text-right">
-<span class="text-2xl font-bold text-wood">$70k</span>
-<span class="text-xs text-gray-500 block">/ persona</span>
-</div>
-</div>
-<ul class="text-sm text-gray-600 space-y-2 mt-4 border-t border-gray-200/50 pt-4">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">schedule</span> Duración: 24 horas</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">login</span> Ingreso: pactado con cliente</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">logout</span> Salida: 24 horas después</li>
-</ul>
-</div>
-<div class="glass-card-ivory p-6 rounded-xl hover:border-wood/30 transition-all group">
-<div class="flex justify-between items-start">
-<div>
-<h3 class="text-xl font-bold text-charcoal mb-1 group-hover:text-wood transition-colors">Evento Privado</h3>
-<p class="text-sm text-gray-500">Bodas exclusivas, retiros corporativos a medida y celebraciones inolvidables.</p>
-</div>
-<div class="text-right">
-<span class="text-lg font-bold text-charcoal">Cotizar</span>
-</div>
-</div>
-<ul class="text-sm text-gray-600 space-y-2 mt-4 border-t border-gray-200/50 pt-4">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Capacidad hasta 80 personas</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-wood text-sm">check</span> Mobiliario premium y sonido incluido</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="glass-panel-light p-8 rounded-2xl shadow-xl relative sticky top-28">
-<h3 class="text-2xl font-display font-bold text-charcoal mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined text-wood">calendar_month</span>
-                    Reserva tu fecha
-                </h3>
-<form class="space-y-4" id="booking-form">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="name">Nombre Completo</label>
-<input class="w-full bg-white/50 border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors placeholder-gray-400" id="name" placeholder="Tu nombre" required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="phone">Celular</label>
-<input class="w-full bg-white/50 border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors placeholder-gray-400" id="phone" placeholder="300 123 4567" required="" type="tel"/>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="date">Fecha</label>
-<input class="w-full bg-white/50 border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors text-gray-500" id="date" required="" type="date"/>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="pax">Personas</label>
-<input class="w-full bg-white/50 border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors placeholder-gray-400" id="pax" min="1" placeholder="Ej: 20" required="" type="number"/>
-</div>
-</div>
-<div class="space-y-1">
-<label class="text-xs font-bold uppercase tracking-wider text-gray-500" for="service">Servicio de interés</label>
-<select class="w-full bg-white/50 border border-gray-300 rounded-lg px-4 py-3 text-charcoal focus:outline-none focus:border-wood focus:ring-1 focus:ring-wood transition-colors" id="service" required="">
-<option disabled="" selected="" value="">Selecciona una opción</option>
-<option value="Pasadía">Pasadía ($40k)</option>
-<option value="Estadía">Estadía ($70k)</option>
-<option value="Evento Privado">Evento Privado (Cotizar)</option>
-</select>
-</div>
-<button class="w-full btn-glass-gold text-white font-bold py-4 rounded-lg shadow-md transition-all mt-4 flex items-center justify-center gap-2 disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed hover:shadow-lg animate-breathe group" disabled="" id="whatsapp-btn" type="button">
-<img alt="WhatsApp" class="w-5 h-5 brightness-0 invert group-disabled:opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5mXMv2LEQBz2kijwCnUDJtXw5UVRJT1UPWMIWybHHLQBUMbn0nTPw5qCkwWeIF9iJF5ETFAJvOpMiL3gM7lLztuAACY5e9QBFG7ngkAXor39j4mOHs95SMUeBqAKtPJO2U6g80BAEUg-lsimWyZu01sKKkXOxM2HVY3RweTKCVwZQ1ChY9m3XV7VovFQdcDGKhGVJAp011txbfe3cFdqklM_vdWvc5zImeoFCZ9ZVRvrbJ7ybHIFEqY_w-Xhb8SA0SfncK02W"/>
-<span>Reserva tu experiencia</span>
-</button>
-<p class="text-xs text-center text-warm-gray mt-4">Serás redirigido a WhatsApp para confirmar detalles.</p>
-</form>
-</div>
-</div>
-</div>
-</section>
-<footer class="bg-charcoal py-12 border-t border-white/10 text-ivory">
+
+        <!-- Amenidades (Centrado, Reducido y Ocultamiento Inteligente) -->
+        <section id="amenities" class="py-28 bg-arch-gray text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+                <div class="text-center mb-24">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Tu Comodidad es Nuestra Prioridad</h2>
+                    <p class="text-warm-gray max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                        Hemos diseñado cada espacio buscando un equilibrio entre la elegancia y la calidez del hogar.
+                    </p>
+                </div>
+
+                <div id="amenities-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
+                    <!-- 1. Piscina Iluminada -->
+                    <div class="amenity-card group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">pool</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Piscina iluminada</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Ambientada con iluminación nocturna, ideal para disfrutar momentos seguros de día y de noche.</p>
+                    </div>
+
+                    <!-- 2. Zona de Juegos -->
+                    <div class="amenity-card group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">sports_esports</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Zona de juegos</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Espacios para compartir en familia con opciones que invitan a disfrutar sin prisas.</p>
+                    </div>
+
+                    <!-- 3. Wi-Fi Starlink -->
+                    <div class="amenity-card group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">wifi</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Wi-Fi Starlink</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Conectividad de alta velocidad para estar en línea sin sacrificar el descanso.</p>
+                    </div>
+
+                    <!-- 4. Zona BBQ -->
+                    <div class="amenity-card group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all duration-500 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">outdoor_grill</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Zona BBQ</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Kiosco para parrilladas sociales donde la buena comida y la compañía son protagonistas.</p>
+                    </div>
+
+                    <!-- Amenidades Extra (Permanecen ocultas por defecto) -->
+                    <div class="hidden-amenity group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">speaker</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Sistema de sonido</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Audio de alta calidad para ambientar tus momentos en un entorno privado.</p>
+                    </div>
+                    <div class="hidden-amenity group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">countertops</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Cocina integral</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Espacio totalmente equipado para preparar tus recetas favoritas con comodidad.</p>
+                    </div>
+                    <div class="hidden-amenity group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">local_fire_department</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Fogata</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Rincón para reunirse al calor del fuego y tener charlas memorables.</p>
+                    </div>
+                    <div class="hidden-amenity group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">support_agent</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Servicio de conserje</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Atención dedicada para asegurar tu estancia y brindarte tranquilidad.</p>
+                    </div>
+                    <div class="hidden-amenity group p-10 rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-wood/40 transition-all flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-wood/10 rounded-2xl flex items-center justify-center mb-8 text-wood group-hover:bg-wood group-hover:text-white transition-all mx-auto">
+                            <span class="material-symbols-outlined text-4xl">local_parking</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Parqueadero privado</h4>
+                        <p class="text-warm-gray text-sm leading-relaxed">Espacio seguro para 7 carros, pensado para tu absoluta comodidad.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button id="toggle-amenities" class="px-10 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-all text-sm font-bold uppercase tracking-widest flex items-center gap-4 mx-auto group">
+                        <span>Ver todas las amenidades</span>
+                        <span class="material-symbols-outlined transition-transform duration-500 group-hover:translate-y-1">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería Carrusel -->
+        <section class="py-24 bg-ivory overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 mb-20 text-center">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-charcoal mb-6">Momentos Inolvidables</h2>
+                <p class="text-warm-gray max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                    Un vistazo a la magia que ocurre en cada rincón de nuestra propiedad. Historias reales escritas bajo el sol de Sábana Grande.
+                </p>
+            </div>
+            
+            <div class="marquee-mask relative">
+                <div class="flex gap-10 w-max animate-scroll py-6">
+                    <div class="w-[420px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.03]">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2-Ya-Aw7WsiT9sMxWbScW4zbJtw86P0ZG0dF1xlMVJOKCBmlT0m0tLBPwqb0WqRIDGDKjnZa6OhHBYPUpCea_ePZclHspK_tRcYOGWVWDWV68F3xJkCTaHi_AOy-bjrugxhD7Ugg5hnKHrbM_WwbqMamX_tMmpYux1ZY_fFa_BgLtNGMAxyxEziCE7jaa6mdBUpcKpGn4cravyUS8LuHUXpSpR7mEt2xXR1R0hq3cz3VL7GaJLfqXrcH-IR2-kBuUVsEHj6J" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-[420px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.03]">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzcFAqKr3Ut3NFHJ0-dMrTLDGF6W0tTzYdasD8CtBFWqysPCzOLnBau0nLTZlzhg59GD0TZloh5PJHeYl-nG7MeG7nMwnXWWeas6Ix8L_y1N-k904TU2g3rkKrZFJo13XPh4C8M_Mp4w1OIlZ8pjdVE7wGb5Vg6loXn0dWW9LjmEJv48fWrt18OdIIKbLIXyfHC0cTlAXTeqJfLaKa6GqSxAL-felRwDGOmA42BKUJGkpQhAuLPMgkzjZ35n4HXgq1PvT4Xu7" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-[420px] aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.03]">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObGKf_CYmdmes8BQNFsjejsNuzP0Dyo5QA6nfbici2dAJqv2BE7Yz5t03UqH4rECUprIIF0AOhPwyNbp_jLbRIWUihtP0lgwGWZOT7wPseSe4zFHSPkJIzvuRn68-CjTh9cwKiiDMCkXuwxUdIIymimNKIc6ZhCOB787VSDiTLCEg2plRebvopx7TvvKWoylbW-jkim8yo3spkEiD0HFlKhPUSr6LgHoZeQfEQkOsdm-B2c869KkXrCxSa0FtBIxAxFLc4Grq" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prueba Social -->
+        <section class="py-28 bg-arch-gray text-white reveal-on-scroll">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-4xl font-display font-bold text-center mb-20">Lo que dicen nuestros huéspedes</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 shadow-xl transition-all italic relative group">
+                        <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
+                        <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"El lugar es simplemente espectacular. Celebramos nuestra boda aquí y cada rincón fue perfecto para las fotos. La atención fue 10/10."</p>
+                        <div class="flex items-center gap-5 not-italic">
+                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">CM</div>
+                            <div>
+                                <h5 class="font-bold text-white">Carolina M.</h5>
+                                <p class="text-xs text-wood uppercase tracking-widest">Boda Privada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 shadow-xl transition-all italic relative group">
+                        <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
+                        <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"Un fin de semana increíble con la familia. La piscina y el kiosco BBQ fueron lo mejor. Definitivamente volveremos pronto."</p>
+                        <div class="flex items-center gap-5 not-italic">
+                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">AP</div>
+                            <div>
+                                <h5 class="font-bold text-white">Andrés P.</h5>
+                                <p class="text-xs text-wood uppercase tracking-widest">Pasadía Familiar</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 shadow-xl transition-all italic relative group">
+                        <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
+                        <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"La tranquilidad de Sábana Grande combinada con el lujo de esta cabaña es única. Muy recomendado para desconectarse."</p>
+                        <div class="flex items-center gap-5 not-italic">
+                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">JL</div>
+                            <div>
+                                <h5 class="font-bold text-white">Jorge L.</h5>
+                                <p class="text-xs text-wood uppercase tracking-widest">Estadía Fin de Semana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tarifas Clicables -->
+        <section id="precios" class="py-28 bg-white reveal-on-scroll">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-24">
+                    <h2 class="text-wood text-sm font-bold tracking-widest uppercase mb-4 text-center">Planes y Tarifas</h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-bold text-charcoal text-center">Selecciona tu experiencia</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-28">
+                    <div onclick="scrollToForm('Pasadía')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm">
+                        <h4 class="text-3xl font-bold text-charcoal mb-4">Pasadía</h4>
+                        <div class="font-display text-wood font-bold mb-8 text-4xl">$40.000 <span class="text-xs uppercase tracking-widest text-warm-gray">/ pax</span></div>
+                        <p class="text-warm-gray leading-relaxed mb-10 flex-grow">Un respiro de un día en un entorno exclusivo. Acceso completo a áreas sociales y piscina.</p>
+                        <div class="flex items-center gap-2 text-wood font-bold text-xs uppercase tracking-widest">Me interesa <span class="material-symbols-outlined">arrow_forward</span></div>
+                    </div>
+
+                    <div onclick="scrollToForm('Estadía')" class="service-card p-12 rounded-[3.5rem] bg-charcoal text-white border border-charcoal flex flex-col h-full relative overflow-hidden shadow-2xl scale-105 z-10">
+                        <div class="absolute top-0 right-0 bg-wood text-white px-8 py-3 rounded-bl-[2.5rem] text-[10px] font-bold tracking-widest uppercase">Popular</div>
+                        <h4 class="text-3xl font-bold mb-4">Estadía total</h4>
+                        <div class="font-display text-wood font-bold mb-8 text-4xl">$70.000 <span class="text-xs uppercase tracking-widest text-warm-gray/60">/ pax</span></div>
+                        <p class="text-warm-gray leading-relaxed mb-10 flex-grow">Inmersión total de 24 horas. Disfruta de nuestras habitaciones privadas con A/C.</p>
+                        <div class="flex items-center gap-2 text-wood font-bold text-xs uppercase tracking-widest">Me interesa <span class="material-symbols-outlined">arrow_forward</span></div>
+                    </div>
+
+                    <div onclick="scrollToForm('Evento')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm">
+                        <h4 class="text-3xl font-bold text-charcoal mb-4">Eventos</h4>
+                        <div class="font-display text-wood font-bold mb-8 text-2xl">Cotización a medida</div>
+                        <p class="text-warm-gray leading-relaxed mb-10 flex-grow">Escenario ideal para bodas íntimas o retiros. Privacidad y distinción aseguradas.</p>
+                        <div class="flex items-center gap-2 text-wood font-bold text-xs uppercase tracking-widest">Cotizar <span class="material-symbols-outlined">arrow_forward</span></div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div id="booking-form-area" class="max-w-4xl mx-auto bg-ivory p-12 md:p-20 rounded-[4rem] shadow-2xl border border-charcoal/5 text-center">
+                    <h4 class="text-3xl md:text-4xl font-display font-bold text-charcoal mb-16 italic">¿Hablamos de tu próxima visita?</h4>
+                    <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+                        <div class="space-y-3">
+                            <label for="name" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Nombre completo</label>
+                            <input type="text" id="name" required placeholder="¿Cómo te llamas?" class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm">
+                        </div>
+                        <div class="space-y-3">
+                            <label for="service" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Experiencia</label>
+                            <select id="service" required class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm cursor-pointer">
+                                <option value="" disabled selected>Elige un plan</option>
+                                <option value="Pasadía">Pasadía</option>
+                                <option value="Estadía">Estadía Total</option>
+                                <option value="Evento">Evento Privado</option>
+                            </select>
+                        </div>
+                        <div class="space-y-3">
+                            <label for="date" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Fecha</label>
+                            <input type="date" id="date" required class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm">
+                        </div>
+                        <div class="space-y-3">
+                            <label for="pax" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Invitados</label>
+                            <input type="number" id="pax" min="1" required placeholder="Ej. 10" class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm">
+                        </div>
+                        <button type="button" id="submit-booking" class="md:col-span-2 btn-luxury py-6 rounded-2xl text-white font-bold text-xl flex items-center justify-center gap-4 mt-6">
+                            <span>Consultar Disponibilidad</span>
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer con Mapa -->
+    <footer class="bg-charcoal py-12 border-t border-white/10 text-ivory">
 <div class="container mx-auto px-4 max-w-7xl">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
 <div class="col-span-1 md:col-span-2">
@@ -609,7 +479,7 @@
 <div>
 <h4 class="font-display font-bold text-white text-lg mb-4">Ubicación</h4>
 <div class="w-full aspect-square md:aspect-video md:h-auto rounded-lg overflow-hidden bg-gray-800 relative mb-2 shadow-lg border border-white/10">
-<iframe allowfullscreen="" class="opacity-80 hover:opacity-100 transition-opacity" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.6396446869815!2d-74.7578!3d10.7298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d9c0e0b0b0b%3A0x0!2sCaba%C3%B1a%20Los%20Choquitos!5e0!3m2!1ses!2sco!4v1620000000000!5m2!1ses!2sco" style="border:0;" width="100%">
+<iframe allowfullscreen="" class="opacity-80 hover:opacity-100 transition-opacity" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1783519205155!2d-74.78449792429663!3d10.797648258800619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef5d10046739195%3A0x4b4cc5da563e34db!2sCaba%C3%B1a%20Los%20Choquitos!5e0!3m2!1ses!2sco!4v1769654199919!5m2!1ses!2sco" style="border:0;" width="100%">
 </iframe>
 </div>
 <p class="text-sm text-warm-gray">Sábana Grande, Atlántico</p>
@@ -628,87 +498,70 @@
 </div>
 </div>
 </footer>
-<script>
-    // Smooth reveal animation on scroll
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-    window.addEventListener("scroll", reveal);
-    reveal();
-    // Toggle Amenities Logic
-    function toggleAmenities() {
-        const hiddenItems = document.querySelectorAll('.amenity-extra');
-        const btn = document.getElementById('view-more-btn');
-        const btnSpan = btn.querySelector('span:first-child');
-        const btnIcon = btn.querySelector('.material-symbols-outlined');
-        let isExpanding = btnSpan.innerText.includes('Ver más');
-        hiddenItems.forEach(item => {
-            if (isExpanding) {
-                item.classList.remove('hidden');
-                item.classList.add('fade-enter');
-            } else {
-                item.classList.add('hidden');
-                item.classList.remove('fade-enter');
-            }
+
+    <script>
+        // Header Scroll
+        const header = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) header.classList.add('header-shrink');
+            else header.classList.remove('header-shrink');
+            reveal();
         });
-        if (isExpanding) {
-            btnSpan.innerText = 'Ver menos';
-            btnIcon.innerText = 'expand_less';
-        } else {
-            btnSpan.innerText = 'Ver más comodidades';
-            btnIcon.innerText = 'expand_more';
-        }
-    }
-    // Mobile Menu Logic
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        if (menu.classList.contains('translate-x-full')) {
-            menu.classList.remove('translate-x-full');
-        } else {
-            menu.classList.add('translate-x-full');
-        }
-    }
-    document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
-    document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
-    // Smart Form Logic
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('booking-form');
-        const inputs = form.querySelectorAll('input, select');
-        const submitBtn = document.getElementById('whatsapp-btn');
-        const whatsappNumber = '573019769687'; 
-        function checkInputs() {
-            let allFilled = true;
-            inputs.forEach(input => {
-                if (!input.value || input.value === '') {
-                    allFilled = false;
-                }
+
+        // Scroll Reveals
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal-on-scroll");
+            reveals.forEach(el => {
+                if (el.getBoundingClientRect().top < (window.innerHeight - 100)) el.classList.add("active");
             });
-            submitBtn.disabled = !allFilled;
         }
-        inputs.forEach(input => {
-            input.addEventListener('input', checkInputs);
-            input.addEventListener('change', checkInputs);
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.style.overflow = mobileMenu.classList.contains('translate-x-full') ? '' : 'hidden';
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
+
+        // Toggle Amenities (Cerrado por defecto)
+        const toggleBtn = document.getElementById('toggle-amenities');
+        const hiddenAmenities = document.querySelectorAll('.hidden-amenity');
+        let expanded = false;
+        toggleBtn.addEventListener('click', () => {
+            expanded = !expanded;
+            hiddenAmenities.forEach(el => {
+                if(expanded) el.classList.add('show-amenity');
+                else el.classList.remove('show-amenity');
+            });
+            toggleBtn.querySelector('span:first-child').innerText = expanded ? 'Ver menos' : 'Ver todas las amenidades';
+            toggleBtn.querySelector('span:last-child').style.transform = expanded ? 'rotate(180deg)' : 'rotate(0deg)';
         });
-        submitBtn.addEventListener('click', function() {
-            if (submitBtn.disabled) return;
+
+        // Scroll to Form
+        function scrollToForm(serviceType) {
+            document.getElementById('service').value = serviceType;
+            document.getElementById('booking-form-area').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // WhatsApp Submission
+        const submitBtn = document.getElementById('submit-booking');
+        submitBtn.addEventListener('click', () => {
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
             const date = document.getElementById('date').value;
             const pax = document.getElementById('pax').value;
-            const type = document.getElementById('service').value;
-            const message = `Hola, mi nombre es ${name}. Quiero cotizar un/a ${type} para el día ${date}. Somos ${pax} personas. ¿Podrías darme más información?`;
-            const encodedMessage = encodeURIComponent(message);
-            const url = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodedMessage}`;
-            window.open(url, '_blank');
+            if(!name || !service || !date || !pax) return;
+            const msg = `✨ *NUEVA CONSULTA WEB* ✨\n\n👤 *Nombre:* ${name}\n🗓️ *Fecha:* ${date}\n👥 *Invitados:* ${pax}\n🏛️ *Interés:* ${service}`;
+            window.open(`https://wa.me/573019769687?text=${encodeURIComponent(msg)}`, '_blank');
         });
-    });
-</script>
-</body></html>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            reveal();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>
