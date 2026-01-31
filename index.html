@@ -139,6 +139,77 @@
             transform: translateY(-8px);
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.12);
         }
+        /* Estilos para la Cortina de Vidrio del Tour 360 */
+.tour-curtain {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    background: rgba(11, 11, 11, 0.3); /* Capa traslúcida oscura */
+    backdrop-filter: blur(12px); /* Efecto de desenfoque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-sphere {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        inset 0 0 50px rgba(255,255,255,0.1),
+        0 30px 60px -12px rgba(0,0,0,0.5),
+        0 0 20px rgba(192, 138, 77, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    animation: floatingGlass 4s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+.glass-sphere:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(192, 138, 77, 0.6);
+}
+
+.glass-sphere span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.glass-sphere span:last-child {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+@keyframes floatingGlass {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Clase para ocultar la cortina al hacer clic */
+.tour-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
     </style>
 </head>
 <body class="bg-ivory text-charcoal antialiased overflow-x-hidden">
@@ -231,7 +302,18 @@
             </p>
         </div>
         
-        <div class="relative w-full aspect-[2/3] md:aspect-video rounded-xl overflow-hidden border border-wood/20 shadow-xl group">
+        <!-- Contenedor del Tour con Cortina de Vidrio -->
+<div class="relative w-full mobile-tour-height md:aspect-video rounded-xl overflow-hidden border border-wood/20 shadow-xl group">
+    
+    <!-- Cortina de Vidrio (Botón 3D) -->
+    <div id="tour-curtain" class="tour-curtain" onclick="revealTour()">
+        <div class="glass-sphere">
+            <span>TOUR 360°</span>
+            <span>CLIC PARA ENTRAR</span>
+        </div>
+    </div>
+
+    <!-- Iframe del Tour -->
     <iframe allowfullscreen="" class="w-full h-full" name="panoee-tour-embed" src="https://tour.panoee.net/697575e76a8abc8bfa0757eb" style="border:0;"></iframe>
 </div>
     </div>
@@ -586,6 +668,15 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date').setAttribute('min', today);
         });
+        /* Función para remover la cortina y mostrar el tour virtual */
+function revealTour() {
+    const curtain = document.getElementById('tour-curtain');
+    if (curtain) {
+        curtain.classList.add('tour-hidden');
+        // Opcional: Eliminar del DOM tras la animación para optimizar
+        setTimeout(() => curtain.style.display = 'none', 800);
+    }
+}
     </script>
     <a href="https://wa.me/573019769687?text=Hola%20Los%20Choquitos,%20estoy%20interesado%20en%20reservar." 
    target="_blank" 
