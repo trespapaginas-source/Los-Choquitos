@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://loschoquitos.com/</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://i.ibb.co/HfsPSsnv/Gemini-Generated-Image-qq5zn8qq5zn8qq5z.png</image:loc>
+      <image:caption>Exterior nocturno Cabaña Los Choquitos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.ibb.co/j9mC8t4q/Captura-de-pantalla-2026-01-29-213831.png</image:loc>
+      <image:caption>Evento en Los Choquitos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://i.ibb.co/6pnF0xR/FOTAGA.png</image:loc>
+      <image:caption>Instalaciones Los Choquitos</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://loschoquitos.com/#inicio</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://loschoquitos.com/#tour</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://loschoquitos.com/#amenities</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://loschoquitos.com/#precios</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://loschoquitos.com/#booking-form-area</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.99</priority>
+  </url>
+</urlset>

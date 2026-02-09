@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://loschoquitos.com/#website",
+      "url": "https://loschoquitos.com/",
+      "name": "Los Choquitos",
+      "description": "Cabaña Los Choquitos en Sabanagrande, Atlántico. Espacio privado para descanso, eventos y reservas directas.",
+      "inLanguage": "es-CO",
+      "publisher": { "@id": "https://loschoquitos.com/#business" }
+    },
+    {
+      "@type": "LodgingBusiness",
+      "@id": "https://loschoquitos.com/#business",
+      "name": "Los Choquitos",
+      "alternateName": ["Cabaña Los Choquitos","Los Choquitos Sabanagrande"],
+      "url": "https://loschoquitos.com/",
+      "description": "Cabaña privada en Sabanagrande, Atlántico, ideal para pasadías, estadías y eventos. Reservas directas por formulario y WhatsApp.",
+      "telephone": "+573019769687",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sabanagrande",
+        "addressRegion": "Atlántico",
+        "addressCountry": "CO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.797648258800619,
+        "longitude": -74.78449792429663
+      },
+      "hasMap": "https://www.google.com/maps?q=10.797648258800619,-74.78449792429663",
+      "image": ["https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png"],
+      "sameAs": ["https://www.instagram.com/cabanaloschoquitos/"],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Piscina", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Zona BBQ", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Zona de juegos", "value": true }
+      ],
+      "makesOffer": {
+        "@type": "Offer",
+        "url": "https://loschoquitos.com/#booking-form-area",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "COP"
+      },
+      "mainEntityOfPage": { "@id": "https://loschoquitos.com/#website" }
+    }
+  ]
+}
