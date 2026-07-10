@@ -1342,6 +1342,7 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
         async function fetchBookedEvents() {
             const calendarUrl = 'https://calendar.google.com/calendar/ical/orlandoroa301@gmail.com/public/basic.ics';
             const proxies = [
+                '/api/calendar-proxy',
                 'https://corsproxy.io/?' + calendarUrl,
                 'https://api.allorigins.win/raw?url=' + encodeURIComponent(calendarUrl)
             ];
