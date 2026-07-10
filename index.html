@@ -228,6 +228,201 @@
     pointer-events: none;
     transform: scale(1.1);
 }
+
+        /* Estilos del Calendario de Disponibilidad */
+        .calendar-section-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .custom-calendar {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(11, 11, 11, 0.08);
+            border-radius: 2rem;
+            background-color: #ffffff;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .calendar-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #0b0b0b;
+            margin-bottom: 0;
+        }
+
+        .calendar-nav {
+            background: transparent;
+            border: 1px solid rgba(11, 11, 11, 0.08);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #0b0b0b;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-nav:hover {
+            background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 10px rgba(192, 138, 77, 0.3);
+        }
+
+        .calendar-grid-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #C08A4D;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            color: #0b0b0b;
+            font-weight: 500;
+        }
+
+        .calendar-day:hover:not(.empty):not(.past):not(.blocked) {
+            background-color: rgba(192, 138, 77, 0.08);
+            color: #C08A4D;
+        }
+
+        .calendar-day.empty {
+            pointer-events: none;
+        }
+
+        .calendar-day.today {
+            background-color: rgba(192, 138, 77, 0.05);
+            border: 1.5px solid rgba(192, 138, 77, 0.3);
+            font-weight: 700;
+            color: #C08A4D;
+        }
+
+        .calendar-day.selected {
+            background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 10px rgba(192, 138, 77, 0.3);
+        }
+
+        .calendar-day.in-range {
+            background-color: rgba(192, 138, 77, 0.1);
+            border-radius: 0;
+            color: #C08A4D;
+        }
+
+        .calendar-day.range-start {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .calendar-day.range-end {
+            border-radius: 0 12px 12px 0;
+        }
+
+        .calendar-day.range-start.range-end {
+            border-radius: 12px;
+        }
+
+        .calendar-day.past {
+            color: #B8B5B0;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .calendar-day.blocked {
+            color: #B8B5B0;
+            opacity: 0.35;
+            pointer-events: none;
+            text-decoration: line-through;
+            background-color: rgba(11, 11, 11, 0.03);
+            border-radius: 12px;
+        }
+
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #B8B5B0;
+            flex-wrap: wrap;
+            font-weight: 600;
+        }
+
+        .calendar-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-swatch {
+            display: block;
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .legend-swatch--available {
+            background-color: #ffffff;
+            border: 1px solid rgba(11, 11, 11, 0.1);
+        }
+
+        .legend-swatch--selected {
+            background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
+        }
+
+        .legend-swatch--blocked {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: line-through;
+            background-color: rgba(11, 11, 11, 0.03);
+            border: 1px dashed rgba(11, 11, 11, 0.1);
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .btn-calendar-action {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body class="bg-ivory text-charcoal antialiased overflow-x-hidden">
@@ -297,13 +492,160 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="#booking-form-area" class="btn-luxury px-12 py-5 rounded-full text-white font-bold shadow-2xl flex items-center justify-center gap-3">
+                    <a href="#booking-form-area" class="btn-luxury px-12 py-5 rounded-full text-white font-bold shadow-2xl flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
                         Reservar Mi Estancia
+                    </a>
+                    <a href="#calendario" class="px-12 py-5 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all">
+                        Ver Disponibilidad
                         <span class="material-symbols-outlined">calendar_today</span>
                     </a>
-                    <a href="#tour" class="px-12 py-5 rounded-full border border-white/40 text-white hover:bg-white/10 font-bold backdrop-blur-md transition-all">
-                        Explorar la Cabaña
-                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendario de Disponibilidad -->
+        <section id="calendario" class="py-24 bg-white reveal-on-scroll">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-16">
+                    <span class="text-wood text-sm font-bold tracking-widest uppercase mb-4 block">Planifica tu Estadía</span>
+                    <h2 class="text-3xl md:text-5xl font-display font-bold text-charcoal mb-4">Disponibilidad en Tiempo Real</h2>
+                    <div class="w-24 h-1 bg-wood mx-auto rounded-full mb-6"></div>
+                    <p class="text-warm-gray max-w-2xl mx-auto font-light mb-8">
+                        Consulta las fechas disponibles para tu visita. Selecciona tus días libres en el calendario para rellenar de forma automática tu consulta de cotización.
+                    </p>
+
+                    <!-- Selector Segmentado de Planes -->
+                    <div class="flex justify-center mb-8 bg-charcoal/5 p-1.5 rounded-full max-w-[400px] mx-auto border border-charcoal/5">
+                        <button type="button" id="tab-estadia" class="flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-wood text-white shadow-sm cursor-pointer">Estadía</button>
+                        <button type="button" id="tab-pasadia" class="flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-warm-gray hover:text-charcoal cursor-pointer">Pasadía</button>
+                        <button type="button" id="tab-evento" class="flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-warm-gray hover:text-charcoal cursor-pointer">Evento Privado</button>
+                    </div>
+                </div>
+
+                <!-- Wizard Container -->
+                <div id="wizard-container" class="relative overflow-hidden min-h-[460px] mt-6 sm:mt-10">
+                    
+                    <!-- Paso 1: Calendario -->
+                    <div id="wizard-step-1" class="wizard-step relative w-full transition-all duration-500 transform translate-x-0 opacity-100">
+                        <div id="custom-calendar-root"></div>
+
+                        <div class="calendar-legend">
+                            <div class="calendar-legend-item">
+                                <span class="legend-swatch legend-swatch--available"></span>
+                                <span>Disponible</span>
+                            </div>
+                            <div class="calendar-legend-item">
+                                <span class="legend-swatch legend-swatch--selected"></span>
+                                <span>Seleccionado</span>
+                            </div>
+                            <div class="calendar-legend-item">
+                                <span class="legend-swatch legend-swatch--blocked"></span>
+                                <span>Reservado / Ocupado</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-calendar-action flex justify-center mt-8">
+                            <button id="btn-cotizar" class="btn-luxury text-white px-10 py-4 rounded-full text-sm font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 transition-all cursor-pointer">
+                                Selecciona tus fechas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2: Datos del Usuario -->
+                    <div id="wizard-step-2" class="wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4">
+                        <div class="bg-white/95 border border-wood/25 rounded-[2.5rem] p-6 sm:p-10 w-full max-w-md shadow-[0_20px_50px_rgba(192,138,77,0.12)] text-left backdrop-blur-md relative overflow-hidden">
+                            <!-- Luxury Decorative Accent Line -->
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-wood to-wood-hover"></div>
+                            
+                            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-wood block text-center mb-2">Paso 2 de 3</span>
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-charcoal mb-6 sm:mb-8 text-center">Tus Datos</h3>
+                            
+                            <div class="space-y-4 sm:space-y-6">
+                                <div>
+                                    <label for="wizard-name" class="text-[10px] font-bold uppercase tracking-widest text-warm-gray ml-2 block mb-2">Nombre completo</label>
+                                    <div class="relative">
+                                        <input type="text" id="wizard-name" required placeholder="¿Cómo te llamas?" class="w-full bg-ivory/50 border border-wood/10 rounded-2xl px-6 py-4 text-charcoal focus:border-wood focus:ring-2 focus:ring-wood/20 focus:bg-white transition-all text-sm shadow-sm placeholder-warm-gray/60">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="wizard-pax" class="text-[10px] font-bold uppercase tracking-widest text-warm-gray ml-2 block mb-2">Número de Invitados</label>
+                                    <div class="flex items-center justify-between bg-ivory/50 border border-wood/10 rounded-2xl p-1.5 shadow-sm">
+                                        <button type="button" id="btn-pax-minus" class="w-12 h-12 rounded-xl bg-white text-wood font-bold hover:bg-wood hover:text-white hover:shadow-md transition-all flex items-center justify-center cursor-pointer border border-wood/5">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                        </button>
+                                        <input type="number" id="wizard-pax" value="8" min="1" max="50" required class="w-20 bg-transparent border-none text-center font-display font-bold text-charcoal text-xl focus:ring-0 appearance-none pointer-events-none">
+                                        <button type="button" id="btn-pax-plus" class="w-12 h-12 rounded-xl bg-white text-wood font-bold hover:bg-wood hover:text-white hover:shadow-md transition-all flex items-center justify-center cursor-pointer border border-wood/5">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col space-y-4 w-full mt-8 sm:mt-10">
+                                <button type="button" id="btn-next-2" class="btn-luxury text-white w-full py-4 rounded-full text-[10px] font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 transition-all cursor-pointer flex items-center justify-center gap-2 group">
+                                    Continuar
+                                    <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                                </button>
+                                <button type="button" id="btn-prev-1" class="text-warm-gray hover:text-charcoal font-bold uppercase tracking-widest text-[10px] py-2 transition-colors cursor-pointer flex items-center justify-center gap-2 group mx-auto">
+                                    <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                                    Volver
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3: Resumen -->
+                    <div id="wizard-step-3" class="wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4">
+                        <div class="bg-white/95 border border-wood/25 rounded-[2.5rem] p-6 sm:p-10 w-full max-w-md shadow-[0_20px_50px_rgba(192,138,77,0.12)] text-center backdrop-blur-md relative overflow-hidden">
+                            <!-- Luxury Decorative Accent Line -->
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-wood to-wood-hover"></div>
+                            
+                            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-wood block mb-2">Paso 3 de 3</span>
+                            <h3 class="font-display font-bold text-2xl sm:text-3xl text-charcoal mb-2">Tu Estadía</h3>
+                            <p class="text-warm-gray text-xs mb-8 font-light">Verifica la información antes de continuar</p>
+                            
+                            <!-- Ticket-style summary card -->
+                            <div class="bg-ivory/50 border border-wood/10 rounded-3xl p-6 mb-8 text-left shadow-sm relative overflow-hidden">
+                                <!-- Top Row: Plan & Guests -->
+                                <div class="flex justify-between items-start border-b border-wood/10 pb-4 gap-4">
+                                    <div class="flex flex-col space-y-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-wood">Plan Seleccionado</span>
+                                        <span id="summary-plan" class="font-display font-bold text-2xl text-charcoal"></span>
+                                    </div>
+                                    <div class="flex flex-col items-end space-y-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-wood">Invitados</span>
+                                        <span id="summary-pax" class="font-display font-bold text-base text-charcoal bg-white border border-wood/10 px-3 py-1 rounded-xl shadow-sm"></span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content Details -->
+                                <div class="space-y-4 pt-4">
+                                    <div class="flex flex-col space-y-1">
+                                        <span class="text-[10px] font-bold uppercase tracking-widest text-warm-gray">Huésped Principal</span>
+                                        <span id="summary-name" class="font-semibold text-charcoal text-base truncate max-w-[280px]"></span>
+                                    </div>
+                                    
+                                    <div class="flex flex-col space-y-1 border-t border-wood/5 pt-3">
+                                        <span class="text-[10px] font-bold uppercase tracking-widest text-warm-gray">Fechas Seleccionadas</span>
+                                        <span id="summary-dates" class="font-display font-bold text-xl text-wood"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col space-y-4 w-full">
+                                <button type="button" id="btn-confirm-whatsapp" class="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white px-8 py-5 rounded-full text-xs font-bold shadow-[0_10px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_15px_25px_rgba(16,185,129,0.4)] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:-translate-y-0.5 active:translate-y-0 w-full cursor-pointer">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                                    <span>Confirmar en WhatsApp</span>
+                                </button>
+                                
+                                <button type="button" id="btn-prev-2" class="text-warm-gray hover:text-charcoal font-bold uppercase tracking-widest text-[10px] py-2 transition-colors cursor-pointer flex items-center justify-center gap-2 group mx-auto">
+                                    <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                                    Volver
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -472,7 +814,7 @@
                         <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
                         <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"El lugar es simplemente espectacular. Celebramos nuestra boda aquí y cada rincón fue perfecto para las fotos. La atención fue 10/10."</p>
                         <div class="flex items-center gap-5 not-italic">
-                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">CM</div>
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="Carolina M." class="w-14 h-14 rounded-full object-cover border border-wood/20">
                             <div>
                                 <h5 class="font-bold text-white">Carolina M.</h5>
                                 <p class="text-xs text-wood uppercase tracking-widest">Boda Privada</p>
@@ -483,7 +825,7 @@
                         <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
                         <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"Un fin de semana increíble con la familia. La piscina y el kiosco BBQ fueron lo mejor. Definitivamente volveremos pronto."</p>
                         <div class="flex items-center gap-5 not-italic">
-                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">AP</div>
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Andrés P." class="w-14 h-14 rounded-full object-cover border border-wood/20">
                             <div>
                                 <h5 class="font-bold text-white">Andrés P.</h5>
                                 <p class="text-xs text-wood uppercase tracking-widest">Pasadía Familiar</p>
@@ -494,7 +836,7 @@
                         <span class="material-symbols-outlined absolute -top-4 left-10 text-5xl text-wood opacity-50 group-hover:opacity-100 transition-opacity">format_quote</span>
                         <p class="text-warm-gray leading-relaxed mb-10 mt-4 text-lg">"La tranquilidad de Sabanagrande combinada con el lujo de esta cabaña es única. Muy recomendado para desconectarse."</p>
                         <div class="flex items-center gap-5 not-italic">
-                            <div class="w-14 h-14 bg-wood/20 rounded-full flex items-center justify-center font-bold text-wood">JL</div>
+                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150&h=150" alt="Jorge L." class="w-14 h-14 rounded-full object-cover border border-wood/20">
                             <div>
                                 <h5 class="font-bold text-white">Jorge L.</h5>
                                 <p class="text-xs text-wood uppercase tracking-widest">Estadía Fin de Semana</p>
@@ -514,14 +856,14 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-28">
-                    <div onclick="scrollToForm('Pasadía')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm">
+                    <div onclick="selectPlanAndScrollToCalendar('Pasadía')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm cursor-pointer">
                         <h4 class="text-3xl font-bold text-charcoal mb-4">Pasadía</h4>
                         <div class="font-display text-wood font-bold mb-8 text-4xl">$50.000 <span class="text-xs uppercase tracking-widest text-warm-gray">/ pax</span></div>
                         <p class="text-warm-gray leading-relaxed mb-10 flex-grow">Un respiro de un día en un entorno exclusivo. Acceso completo a áreas sociales y piscina.</p>
                         <div class="flex items-center gap-2 text-wood font-bold text-xs uppercase tracking-widest">Me interesa <span class="material-symbols-outlined">arrow_forward</span></div>
                     </div>
 
-                    <div onclick="scrollToForm('Estadía')" class="service-card p-12 rounded-[3.5rem] bg-charcoal text-white border border-charcoal flex flex-col h-full relative overflow-hidden shadow-2xl scale-105 z-10">
+                    <div onclick="selectPlanAndScrollToCalendar('Estadía')" class="service-card p-12 rounded-[3.5rem] bg-charcoal text-white border border-charcoal flex flex-col h-full relative overflow-hidden shadow-2xl scale-105 z-10 cursor-pointer">
                         <div class="absolute top-0 right-0 bg-wood text-white px-8 py-3 rounded-bl-[2.5rem] text-[10px] font-bold tracking-widest uppercase">Popular</div>
                         <h4 class="text-3xl font-bold mb-4">Estadía total</h4>
                         <div class="font-display text-wood font-bold mb-8 text-4xl">$90.000 <span class="text-xs uppercase tracking-widest text-warm-gray/60">/ pax</span></div>
@@ -529,7 +871,7 @@
                         <div class="flex items-center gap-2 text-wood font-bold text-xs uppercase tracking-widest">Me interesa <span class="material-symbols-outlined">arrow_forward</span></div>
                     </div>
 
-                    <div onclick="scrollToForm('Evento')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm">
+                    <div onclick="selectPlanAndScrollToCalendar('Evento')" class="service-card p-12 rounded-[3.5rem] bg-ivory border border-charcoal/5 flex flex-col h-full shadow-sm cursor-pointer">
                         <h4 class="text-3xl font-bold text-charcoal mb-4">Eventos</h4>
                         <div class="font-display text-wood font-bold mb-8 text-2xl">Cotización a medida</div>
                         <p class="text-warm-gray leading-relaxed mb-10 flex-grow">Escenario ideal para bodas íntimas o retiros. Privacidad y distinción aseguradas.</p>
@@ -548,15 +890,19 @@
                         <div class="space-y-3">
                             <label for="service" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Experiencia</label>
                             <select id="service" required class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm cursor-pointer">
-                                <option value="" disabled selected>Elige un plan</option>
+                                <option value="" disabled>Elige un plan</option>
                                 <option value="Pasadía">Pasadía</option>
-                                <option value="Estadía">Estadía Total</option>
+                                <option value="Estadía" selected>Estadía Total</option>
                                 <option value="Evento">Evento Privado</option>
                             </select>
                         </div>
-                        <div class="space-y-3">
-                            <label for="date" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Fecha</label>
+                        <div class="space-y-3" id="booking-field-checkin">
+                            <label id="date-label" for="date" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Fecha</label>
                             <input type="date" id="date" required class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm">
+                        </div>
+                        <div class="space-y-3" id="booking-field-checkout" style="display: none;">
+                            <label for="checkout-date" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Fecha de Salida</label>
+                            <input type="date" id="checkout-date" class="w-full bg-white border-none rounded-2xl px-8 py-5 shadow-sm">
                         </div>
                         <div class="space-y-3">
                             <label for="pax" class="text-[11px] font-bold uppercase tracking-widest text-warm-gray ml-2">Invitados</label>
@@ -664,9 +1010,26 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
             toggleBtn.querySelector('span:last-child').style.transform = expanded ? 'rotate(180deg)' : 'rotate(0deg)';
         });
 
+        // Select Plan and Scroll to Calendar
+        function selectPlanAndScrollToCalendar(serviceType) {
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                serviceSelect.value = serviceType;
+                handleServiceSelectChange(serviceType);
+            }
+            const calSection = document.getElementById('calendario');
+            if (calSection) {
+                calSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         // Scroll to Form
         function scrollToForm(serviceType) {
-            document.getElementById('service').value = serviceType;
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                serviceSelect.value = serviceType;
+                handleServiceSelectChange(serviceType);
+            }
             document.getElementById('booking-form-area').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -676,17 +1039,653 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
             const name = document.getElementById('name').value;
             const service = document.getElementById('service').value;
             const date = document.getElementById('date').value;
+            const checkoutDate = document.getElementById('checkout-date').value;
             const pax = document.getElementById('pax').value;
             if(!name || !service || !date || !pax) return;
-            const msg = `✨ *NUEVA CONSULTA WEB* ✨\n\n👤 *Nombre:* ${name}\n🗓️ *Fecha:* ${date}\n👥 *Invitados:* ${pax}\n🏛️ *Interés:* ${service}`;
+            if(service === 'Estadía' && !checkoutDate) return;
+
+            let dateStr = date;
+            if (service === 'Estadía') {
+                dateStr = `${date} al ${checkoutDate}`;
+            }
+
+            const msg = `✨ *NUEVA CONSULTA WEB* ✨\n\n👤 *Nombre:* ${name}\n🗓️ *Fecha:* ${dateStr}\n👥 *Invitados:* ${pax}\n🏛️ *Interés:* ${service}`;
             window.open(`https://wa.me/573019769687?text=${encodeURIComponent(msg)}`, '_blank');
         });
+
+        // ==========================================
+        // CALENDARIO DE DISPONIBILIDAD (ICAL SYNC)
+        // ==========================================
+        let selectionStart = null;
+        let selectionEnd = null;
+        let hoverDate = null;
+        let selectedPlan = 'Pasadía'; // Por defecto
+        
+        const calendarRenderFns = [];
+        const calendarRebuildFns = [];
+        let bookedEvents = [];
+        const todayDate = new Date();
+        todayDate.setHours(0, 0, 0, 0);
+
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const monthShortNames = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+        const dayNames = ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"];
+
+        function toISODate(d) {
+            if (!d) return "";
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function formatFull(d) {
+            if (!d) return "";
+            return `${d.getDate()} ${monthShortNames[d.getMonth()]}`;
+        }
+
+        function updateCalendarOutputs() {
+            const btnCotizar = document.getElementById('btn-cotizar');
+            const checkinInput = document.getElementById('date');
+            const checkoutInput = document.getElementById('checkout-date');
+            const serviceSelect = document.getElementById('service');
+            const checkoutField = document.getElementById('booking-field-checkout');
+            const dateLabel = document.getElementById('date-label');
+
+            if (serviceSelect.value === 'Estadía') {
+                selectedPlan = 'Hospedaje';
+                checkoutField.style.display = 'block';
+                checkoutInput.required = true;
+                dateLabel.textContent = 'Fecha de Entrada';
+            } else {
+                selectedPlan = serviceSelect.value === 'Pasadía' ? 'Pasadía' : 'Eventos';
+                checkoutField.style.display = 'none';
+                checkoutInput.required = false;
+                checkoutInput.value = '';
+                dateLabel.textContent = 'Fecha';
+            }
+
+            if (checkinInput) {
+                checkinInput.value = selectionStart ? toISODate(selectionStart) : "";
+            }
+            if (checkoutInput) {
+                checkoutInput.value = selectionEnd ? toISODate(selectionEnd) : "";
+            }
+
+            if (btnCotizar) {
+                const isComplete = (selectedPlan === 'Hospedaje' && selectionStart && selectionEnd) ||
+                                   (selectedPlan !== 'Hospedaje' && selectionStart);
+                if (isComplete) {
+                    btnCotizar.textContent = 'Continuar con la Reserva';
+                    btnCotizar.style.pointerEvents = 'auto';
+                    btnCotizar.style.opacity = '1';
+                    btnCotizar.className = 'btn-luxury text-white px-10 py-4 rounded-full text-sm font-bold shadow-lg uppercase tracking-widest cursor-pointer';
+                } else {
+                    btnCotizar.textContent = 'Selecciona tus fechas';
+                    btnCotizar.style.pointerEvents = 'none';
+                    btnCotizar.style.opacity = '0.4';
+                    btnCotizar.className = 'btn-luxury text-white px-10 py-4 rounded-full text-sm font-bold shadow-lg uppercase tracking-widest pointer-events-none';
+                }
+            }
+        }
+
+        function updateCalendarSelection(calRoot) {
+            const days = calRoot.querySelectorAll('.calendar-day:not(.empty)');
+            days.forEach(dayEl => {
+                const cellDate = new Date(Number(dayEl.dataset.timestamp));
+                const isPast = dayEl.classList.contains('past');
+                const isBlocked = dayEl.classList.contains('blocked');
+                const isToday = dayEl.classList.contains('today');
+
+                dayEl.className = 'calendar-day';
+                if (isPast) dayEl.classList.add('past');
+                if (isBlocked) dayEl.classList.add('blocked');
+                if (isToday) dayEl.classList.add('today');
+
+                if (selectionStart && cellDate.getTime() === selectionStart.getTime()) {
+                    dayEl.classList.add('selected', 'range-start');
+                }
+                if (selectionEnd && cellDate.getTime() === selectionEnd.getTime()) {
+                    dayEl.classList.add('selected', 'range-end');
+                }
+
+                if (selectionStart && selectionEnd) {
+                    if (selectionStart.getTime() === selectionEnd.getTime()) {
+                        if (cellDate.getTime() === selectionStart.getTime()) {
+                            dayEl.classList.add('selected', 'range-start', 'range-end');
+                        }
+                    } else {
+                        if (cellDate.getTime() > selectionStart.getTime() && cellDate.getTime() < selectionEnd.getTime()) {
+                            dayEl.classList.add('in-range');
+                        }
+                    }
+                } else if (selectionStart && !selectionEnd && hoverDate) {
+                    if (cellDate.getTime() > selectionStart.getTime() && cellDate.getTime() <= hoverDate.getTime()) {
+                        dayEl.classList.add('in-range');
+                        if (cellDate.getTime() === hoverDate.getTime()) dayEl.classList.add('range-end');
+                    }
+                }
+            });
+        }
+
+        function buildCalendarInstance(rootId) {
+            const calRoot = document.getElementById(rootId);
+            if (!calRoot) return;
+
+            let calMonthDate = new Date();
+            calMonthDate.setDate(1);
+
+            const renderInstance = () => {
+                calRoot.innerHTML = '';
+                const wrapper = document.createElement('div');
+                wrapper.className = 'custom-calendar';
+
+                // Encabezado
+                const header = document.createElement('div');
+                header.className = 'calendar-header';
+
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'calendar-nav';
+                prevBtn.type = 'button';
+                prevBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>';
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    calMonthDate.setMonth(calMonthDate.getMonth() - 1);
+                    renderInstance();
+                });
+
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'calendar-nav';
+                nextBtn.type = 'button';
+                nextBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>';
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    calMonthDate.setMonth(calMonthDate.getMonth() + 1);
+                    renderInstance();
+                });
+
+                const title = document.createElement('h3');
+                title.textContent = `${monthNames[calMonthDate.getMonth()]} ${calMonthDate.getFullYear()}`;
+
+                header.appendChild(prevBtn);
+                header.appendChild(title);
+                header.appendChild(nextBtn);
+                wrapper.appendChild(header);
+
+                // Días de la semana
+                const gridHeader = document.createElement('div');
+                gridHeader.className = 'calendar-grid-header';
+                dayNames.forEach(day => {
+                    const d = document.createElement('div');
+                    d.textContent = day;
+                    gridHeader.appendChild(d);
+                });
+                wrapper.appendChild(gridHeader);
+
+                // Grilla
+                const grid = document.createElement('div');
+                grid.className = 'calendar-grid';
+
+                const year = calMonthDate.getFullYear();
+                const month = calMonthDate.getMonth();
+                const firstDayIndex = new Date(year, month, 1).getDay();
+                const lastDay = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayIndex; i++) {
+                    const emptyCell = document.createElement('div');
+                    emptyCell.className = 'calendar-day empty';
+                    grid.appendChild(emptyCell);
+                }
+
+                for (let i = 1; i <= lastDay; i++) {
+                    const cellDate = new Date(year, month, i);
+                    const dayEl = document.createElement('div');
+                    dayEl.className = 'calendar-day';
+                    dayEl.textContent = i;
+                    dayEl.dataset.timestamp = cellDate.getTime();
+
+                    if (cellDate.getTime() === todayDate.getTime()) {
+                        dayEl.classList.add('today');
+                    }
+                    if (cellDate.getTime() < todayDate.getTime()) {
+                        dayEl.classList.add('past');
+                    } else if (isDateBooked(cellDate)) {
+                        dayEl.classList.add('blocked');
+                    } else {
+                        dayEl.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (selectedPlan !== 'Hospedaje') {
+                                selectionStart = cellDate;
+                                selectionEnd = cellDate;
+                            } else {
+                                if (!selectionStart) {
+                                    selectionStart = cellDate;
+                                    selectionEnd = null;
+                                } else {
+                                    if (cellDate.getTime() === selectionStart.getTime()) {
+                                        selectionStart = null;
+                                        selectionEnd = null;
+                                    } else if (cellDate.getTime() < selectionStart.getTime()) {
+                                        selectionStart = cellDate;
+                                        selectionEnd = null;
+                                    } else {
+                                        if (hasBlockedDatesBetween(selectionStart, cellDate)) {
+                                            selectionStart = cellDate;
+                                            selectionEnd = null;
+                                        } else {
+                                            selectionEnd = cellDate;
+                                        }
+                                    }
+                                }
+                            }
+                            updateCalendarOutputs();
+                            calendarRenderFns.forEach(fn => fn());
+                        });
+
+                        dayEl.addEventListener('mouseenter', () => {
+                            if (selectedPlan === 'Hospedaje' && selectionStart && !selectionEnd && cellDate.getTime() > selectionStart.getTime()) {
+                                if (!hasBlockedDatesBetween(selectionStart, cellDate)) {
+                                    if (!hoverDate || hoverDate.getTime() !== cellDate.getTime()) {
+                                        hoverDate = cellDate;
+                                        calendarRenderFns.forEach(fn => fn());
+                                    }
+                                } else {
+                                    if (hoverDate !== null) {
+                                        hoverDate = null;
+                                        calendarRenderFns.forEach(fn => fn());
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    grid.appendChild(dayEl);
+                }
+
+                wrapper.appendChild(grid);
+
+                grid.addEventListener('mouseleave', () => {
+                    if (selectionStart && !selectionEnd) {
+                        hoverDate = null;
+                        calendarRenderFns.forEach(fn => fn());
+                    }
+                });
+
+                calRoot.appendChild(wrapper);
+                updateCalendarSelection(calRoot);
+            };
+
+            calendarRenderFns.push(() => {
+                updateCalendarSelection(calRoot);
+            });
+
+            calendarRebuildFns.push(() => {
+                renderInstance();
+            });
+
+            renderInstance();
+        }
+
+        function triggerScrollToForm() {
+            setTimeout(() => {
+                const formArea = document.getElementById('booking-form-area');
+                if (formArea) {
+                    formArea.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => {
+                        const nameInput = document.getElementById('name');
+                        if (nameInput) nameInput.focus();
+                    }, 800);
+                }
+            }, 500);
+        }
+
+        async function fetchBookedEvents() {
+            const calendarUrl = 'https://calendar.google.com/calendar/ical/canaguates228%40gmail.com/public/basic.ics';
+            const proxies = [
+                'https://corsproxy.io/?' + calendarUrl,
+                'https://api.allorigins.win/raw?url=' + encodeURIComponent(calendarUrl)
+            ];
+
+            for (const proxyUrl of proxies) {
+                try {
+                    const response = await fetch(proxyUrl, { cache: 'no-store' });
+                    if (!response.ok) continue;
+                    const text = await response.text();
+                    if (!text.includes('BEGIN:VCALENDAR')) continue;
+                    bookedEvents = parseICal(text);
+                    calendarRebuildFns.forEach(fn => fn());
+                    return;
+                } catch (error) {
+                    console.warn('Proxy fallido:', proxyUrl, error.message);
+                }
+            }
+            console.error('No se pudo sincronizar el calendario.');
+        }
+
+        function isDateBooked(dateObj) {
+            const dayStart = new Date(dateObj);
+            dayStart.setHours(0, 0, 0, 0);
+            const dayEnd = new Date(dayStart);
+            dayEnd.setDate(dayEnd.getDate() + 1);
+
+            return bookedEvents.some(event => {
+                const eventStart = new Date(event.start);
+                const eventEnd = new Date(event.end);
+                return eventStart < dayEnd && eventEnd > dayStart;
+            });
+        }
+
+        function hasBlockedDatesBetween(start, end) {
+            if (!start || !end) return false;
+            const startTime = start.getTime();
+            const endTime = end.getTime();
+            const temp = new Date(startTime);
+            temp.setDate(temp.getDate() + 1);
+            temp.setHours(0, 0, 0, 0);
+
+            while (temp.getTime() < endTime) {
+                if (isDateBooked(temp)) {
+                    return true;
+                }
+                temp.setDate(temp.getDate() + 1);
+            }
+            return false;
+        }
+
+        function parseICal(icalText) {
+            const unfolded = icalText.replace(/\r?\n[ \t]/g, '');
+            const lines = unfolded.split(/\r?\n/);
+            const events = [];
+            let currentEvent = null;
+
+            for (let line of lines) {
+                if (line.startsWith('BEGIN:VEVENT')) {
+                    currentEvent = {};
+                } else if (line.startsWith('END:VEVENT')) {
+                    if (currentEvent && currentEvent.start && currentEvent.end) {
+                        events.push(currentEvent);
+                    }
+                    currentEvent = null;
+                } else if (currentEvent) {
+                    if (line.startsWith('DTSTART')) {
+                        const idx = line.indexOf(':');
+                        const params = line.substring(0, idx);
+                        const val = line.substring(idx + 1).trim();
+                        const hasTZID = params.includes('TZID');
+                        currentEvent.start = parseICalDate(val, hasTZID);
+                    } else if (line.startsWith('DTEND')) {
+                        const idx = line.indexOf(':');
+                        const params = line.substring(0, idx);
+                        const val = line.substring(idx + 1).trim();
+                        const hasTZID = params.includes('TZID');
+                        currentEvent.end = parseICalDate(val, hasTZID);
+                    }
+                }
+            }
+            return events;
+        }
+
+        function parseICalDate(icalStr, hasTZID) {
+            icalStr = icalStr.trim();
+            const isUTC = icalStr.endsWith('Z');
+            const cleanStr = icalStr.replace(/[^0-9T]/g, '');
+            const y = parseInt(cleanStr.substring(0, 4));
+            const m = parseInt(cleanStr.substring(4, 6)) - 1;
+            const d = parseInt(cleanStr.substring(6, 8));
+
+            if (cleanStr.includes('T')) {
+                const h = parseInt(cleanStr.substring(9, 11)) || 0;
+                const min = parseInt(cleanStr.substring(11, 13)) || 0;
+                const s = parseInt(cleanStr.substring(13, 15)) || 0;
+
+                if (isUTC) {
+                    return new Date(Date.UTC(y, m, d, h, min, s));
+                } else if (hasTZID) {
+                    return new Date(Date.UTC(y, m, d, h + 5, min, s));
+                } else {
+                    return new Date(y, m, d, h, min, s);
+                }
+            } else {
+                return new Date(y, m, d, 0, 0, 0);
+            }
+        }
+
+        function updateSegmentedTabs(val) {
+            const tabEstadia = document.getElementById('tab-estadia');
+            const tabPasadia = document.getElementById('tab-pasadia');
+            const tabEvento = document.getElementById('tab-evento');
+            if(!tabEstadia || !tabPasadia || !tabEvento) return;
+
+            const activeClass = "flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-wood text-white shadow-sm";
+            const inactiveClass = "flex-1 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-warm-gray hover:text-charcoal";
+
+            tabEstadia.className = (val === 'Estadía') ? activeClass : inactiveClass;
+            tabPasadia.className = (val === 'Pasadía') ? activeClass : inactiveClass;
+            tabEvento.className = (val === 'Evento') ? activeClass : inactiveClass;
+        }
+
+        function handleServiceSelectChange(val) {
+            if (val === 'Estadía') {
+                selectedPlan = 'Hospedaje';
+                if (selectionStart && selectionEnd && selectionStart.getTime() === selectionEnd.getTime()) {
+                    const nextDay = new Date(selectionStart);
+                    nextDay.setDate(nextDay.getDate() + 1);
+                    selectionEnd = nextDay;
+                }
+            } else {
+                selectedPlan = val === 'Pasadía' ? 'Pasadía' : 'Eventos';
+                if (selectionStart) {
+                    selectionEnd = selectionStart;
+                }
+            }
+            updateSegmentedTabs(val);
+            updateCalendarOutputs();
+            calendarRenderFns.forEach(fn => fn());
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             reveal();
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').setAttribute('min', today);
+            const checkinInput = document.getElementById('date');
+            const checkoutInput = document.getElementById('checkout-date');
+            if (checkinInput) checkinInput.setAttribute('min', today);
+            if (checkoutInput) checkoutInput.setAttribute('min', today);
+
+            // Inicializar Calendario
+            buildCalendarInstance('custom-calendar-root');
+            fetchBookedEvents();
+
+            const serviceSelect = document.getElementById('service');
+            if (serviceSelect) {
+                serviceSelect.addEventListener('change', () => {
+                    handleServiceSelectChange(serviceSelect.value);
+                });
+            }
+
+            // Tabs Setup
+            const tabEstadia = document.getElementById('tab-estadia');
+            const tabPasadia = document.getElementById('tab-pasadia');
+            const tabEvento = document.getElementById('tab-evento');
+            
+            if (tabEstadia && tabPasadia && tabEvento && serviceSelect) {
+                tabEstadia.addEventListener('click', () => {
+                    serviceSelect.value = 'Estadía';
+                    handleServiceSelectChange('Estadía');
+                });
+                tabPasadia.addEventListener('click', () => {
+                    serviceSelect.value = 'Pasadía';
+                    handleServiceSelectChange('Pasadía');
+                });
+                tabEvento.addEventListener('click', () => {
+                    serviceSelect.value = 'Evento';
+                    handleServiceSelectChange('Evento');
+                });
+                // Initialize active tab
+                const initialPlan = serviceSelect.value || 'Estadía';
+                updateSegmentedTabs(initialPlan);
+                handleServiceSelectChange(initialPlan);
+            }
+
+            if (checkinInput) {
+                checkinInput.addEventListener('change', (e) => {
+                    if (e.target.value) {
+                        const parts = e.target.value.split('-');
+                        selectionStart = new Date(parts[0], parts[1] - 1, parts[2]);
+                        selectionStart.setHours(0, 0, 0, 0);
+                        if (selectedPlan !== 'Hospedaje') {
+                            selectionEnd = selectionStart;
+                        } else if (selectionEnd && selectionEnd.getTime() < selectionStart.getTime()) {
+                            selectionEnd = null;
+                        }
+                        updateCalendarOutputs();
+                        calendarRenderFns.forEach(fn => fn());
+                    } else {
+                        selectionStart = null;
+                        updateCalendarOutputs();
+                        calendarRenderFns.forEach(fn => fn());
+                    }
+                });
+            }
+
+            if (checkoutInput) {
+                checkoutInput.addEventListener('change', (e) => {
+                    if (e.target.value) {
+                        const parts = e.target.value.split('-');
+                        const tempEnd = new Date(parts[0], parts[1] - 1, parts[2]);
+                        tempEnd.setHours(0, 0, 0, 0);
+                        if (selectionStart && tempEnd.getTime() >= selectionStart.getTime()) {
+                            selectionEnd = tempEnd;
+                        } else {
+                            selectionStart = tempEnd;
+                            selectionEnd = null;
+                        }
+                        updateCalendarOutputs();
+                        calendarRenderFns.forEach(fn => fn());
+                    } else {
+                        selectionEnd = null;
+                        updateCalendarOutputs();
+                        calendarRenderFns.forEach(fn => fn());
+                    }
+                });
+            }
+
+            // WIZARD LOGIC
+            const step1 = document.getElementById('wizard-step-1');
+            const step2 = document.getElementById('wizard-step-2');
+            const step3 = document.getElementById('wizard-step-3');
+            const btnCotizar = document.getElementById('btn-cotizar');
+            const btnPrev1 = document.getElementById('btn-prev-1');
+            const btnNext2 = document.getElementById('btn-next-2');
+            const btnPrev2 = document.getElementById('btn-prev-2');
+            const btnConfirm = document.getElementById('btn-confirm-whatsapp');
+            
+            const wizName = document.getElementById('wizard-name');
+            const wizPax = document.getElementById('wizard-pax');
+            const btnPaxMinus = document.getElementById('btn-pax-minus');
+            const btnPaxPlus = document.getElementById('btn-pax-plus');
+
+            let finalSummaryStr = "";
+
+            function goToStep(targetStep) {
+                [step1, step2, step3].forEach(el => {
+                    if (el) {
+                        el.classList.remove('translate-x-0', 'opacity-100', 'relative');
+                        el.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+                        el.classList.remove('-translate-x-full', 'translate-x-full');
+                    }
+                });
+
+                if (targetStep === 1) {
+                    if (step1) {
+                        step1.classList.add('translate-x-0', 'opacity-100', 'relative');
+                        step1.classList.remove('pointer-events-none', 'absolute', 'inset-0', 'opacity-0');
+                    }
+                    if (step2) step2.classList.add('translate-x-full');
+                    if (step3) step3.classList.add('translate-x-full');
+                } else if (targetStep === 2) {
+                    if (step1) step1.classList.add('-translate-x-full');
+                    if (step2) {
+                        step2.classList.add('translate-x-0', 'opacity-100', 'relative');
+                        step2.classList.remove('pointer-events-none', 'absolute', 'inset-0', 'opacity-0');
+                    }
+                    if (step3) step3.classList.add('translate-x-full');
+                    
+                    const container = document.getElementById('wizard-container');
+                    if (container) container.scrollLeft = 0;
+                    if (wizName) {
+                        setTimeout(() => {
+                            if (container) container.scrollLeft = 0;
+                            wizName.focus({ preventScroll: true });
+                        }, 50);
+                    }
+                } else if (targetStep === 3) {
+                    if (step1) step1.classList.add('-translate-x-full');
+                    if (step2) step2.classList.add('-translate-x-full');
+                    if (step3) {
+                        step3.classList.add('translate-x-0', 'opacity-100', 'relative');
+                        step3.classList.remove('pointer-events-none', 'absolute', 'inset-0', 'opacity-0');
+                    }
+                    const container = document.getElementById('wizard-container');
+                    if (container) container.scrollLeft = 0;
+                    populateSummary();
+                }
+            }
+
+            function validateStep2() {
+                if (wizName && wizName.value.trim().length > 0) {
+                    btnNext2.classList.remove('pointer-events-none', 'opacity-40');
+                } else {
+                    btnNext2.classList.add('pointer-events-none', 'opacity-40');
+                }
+            }
+
+            function populateSummary() {
+                let dateStr = "";
+                if (selectedPlan === 'Hospedaje') {
+                    dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
+                } else {
+                    dateStr = formatFull(selectionStart);
+                }
+
+                document.getElementById('summary-plan').textContent = selectedPlan === 'Hospedaje' ? 'Estadía Total' : (selectedPlan === 'Pasadía' ? 'Pasadía' : 'Evento Privado');
+                document.getElementById('summary-dates').textContent = dateStr;
+                document.getElementById('summary-name').textContent = wizName.value.trim();
+                document.getElementById('summary-pax').textContent = wizPax.value;
+
+                finalSummaryStr = `¡Hola Cabaña Los Choquitos! 🌴✨\nMe gustaría consultar disponibilidad con los siguientes detalles:\n\n👤 *Nombre:* ${wizName.value.trim()}\n🗓️ *Fecha:* ${dateStr}\n👥 *Invitados:* ${wizPax.value}\n🏛️ *Interés:* ${selectedPlan === 'Hospedaje' ? 'Estadía Total' : selectedPlan}\n\nQuedo atento para continuar con mi reserva. ¡Muchas gracias!`;
+            }
+
+            if (btnCotizar) {
+                btnCotizar.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    goToStep(2);
+                });
+            }
+
+            if (wizName) wizName.addEventListener('input', validateStep2);
+            if (btnNext2) btnNext2.addEventListener('click', () => goToStep(3));
+            if (btnPrev1) btnPrev1.addEventListener('click', () => goToStep(1));
+            if (btnPrev2) btnPrev2.addEventListener('click', () => goToStep(2));
+            
+            if (btnPaxMinus && wizPax) {
+                btnPaxMinus.addEventListener('click', () => {
+                    let val = parseInt(wizPax.value) || 1;
+                    if (val > 1) wizPax.value = val - 1;
+                });
+            }
+            if (btnPaxPlus && wizPax) {
+                btnPaxPlus.addEventListener('click', () => {
+                    let val = parseInt(wizPax.value) || 1;
+                    if (val < 50) wizPax.value = val + 1;
+                });
+            }
+
+            if (btnConfirm) {
+                btnConfirm.addEventListener('click', () => {
+                    window.open(`https://wa.me/573019769687?text=${encodeURIComponent(finalSummaryStr)}`, '_blank');
+                });
+            }
         });
+
         /* Función para remover la cortina y mostrar el tour virtual */
 function revealTour() {
     const curtain = document.getElementById('tour-curtain');

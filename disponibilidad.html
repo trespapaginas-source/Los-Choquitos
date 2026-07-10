@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Disponibilidad en Tiempo Real | Cabaña Los Choquitos</title>
+  <meta name="description" content="Consulta la disponibilidad actual de la Cabaña Los Choquitos en Sabanagrande, Atlántico. Calendario actualizado en tiempo real.">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Disponibilidad en Tiempo Real | Cabaña Los Choquitos">
+  <meta property="og:description" content="Consulta las fechas libres para pasadías o hospedajes en Cabaña Los Choquitos. Sincronización automática de reservas.">
+  <meta property="og:image" content="https://i.ibb.co/HfsPSsnv/Gemini-Generated-Image-qq5zn8qq5zn8qq5z.png">
+  <meta property="og:type" content="website">
+
+  <!-- Librerías Externas -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F6F5F2;
+      color: #0B0B0B;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .btn-luxury {
+      background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px -5px rgba(192, 138, 77, 0.4);
+    }
+
+    .btn-luxury:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(192, 138, 77, 0.5);
+    }
+
+    .disp-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
+
+    .disp-card {
+      background-color: #ffffff;
+      border-radius: 3rem;
+      box-shadow: 0 20px 50px rgba(11, 11, 11, 0.05);
+      padding: 48px 36px;
+      width: 100%;
+      max-width: 680px;
+      text-align: center;
+      border: 1px solid rgba(11, 11, 11, 0.05);
+    }
+
+    /* Estilos del Calendario */
+    .custom-calendar {
+      max-width: 500px;
+      margin: 0 auto;
+      border: 1px solid rgba(11, 11, 11, 0.08);
+      border-radius: 2rem;
+      background-color: #ffffff;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .calendar-header h3 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #0b0b0b;
+      margin-bottom: 0;
+    }
+
+    .calendar-nav {
+      background: transparent;
+      border: 1px solid rgba(11, 11, 11, 0.08);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #0b0b0b;
+      transition: all 0.3s ease;
+    }
+
+    .calendar-nav:hover {
+      background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .calendar-grid-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #C08A4D;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      color: #0b0b0b;
+      font-weight: 500;
+    }
+
+    .calendar-day:hover:not(.empty):not(.past):not(.blocked) {
+      background-color: rgba(192, 138, 77, 0.08);
+      color: #C08A4D;
+    }
+
+    .calendar-day.empty {
+      pointer-events: none;
+    }
+
+    .calendar-day.today {
+      background-color: rgba(192, 138, 77, 0.05);
+      border: 1.5px solid rgba(192, 138, 77, 0.3);
+      font-weight: 700;
+      color: #C08A4D;
+    }
+
+    .calendar-day.selected {
+      background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 10px rgba(192, 138, 77, 0.3);
+    }
+
+    .calendar-day.in-range {
+      background-color: rgba(192, 138, 77, 0.1);
+      border-radius: 0;
+      color: #C08A4D;
+    }
+
+    .calendar-day.range-start {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .calendar-day.range-end {
+      border-radius: 0 10px 10px 0;
+    }
+
+    .calendar-day.range-start.range-end {
+      border-radius: 10px;
+    }
+
+    .calendar-day.past {
+      color: #B8B5B0;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .calendar-day.blocked {
+      color: #B8B5B0;
+      opacity: 0.35;
+      pointer-events: none;
+      text-decoration: line-through;
+      background-color: rgba(11, 11, 11, 0.03);
+      border-radius: 10px;
+    }
+
+    .calendar-legend {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 24px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #B8B5B0;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+
+    .calendar-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-swatch {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .legend-swatch--available {
+      background-color: #ffffff;
+      border: 1px solid rgba(11, 11, 11, 0.1);
+    }
+
+    .legend-swatch--selected {
+      background: linear-gradient(135deg, #C08A4D 0%, #A67640 100%);
+    }
+
+    .legend-swatch--blocked {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: line-through;
+      background-color: rgba(11, 11, 11, 0.03);
+      border: 1px dashed rgba(11, 11, 11, 0.1);
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .disp-footer {
+      margin-top: 32px;
+      font-size: 13px;
+      color: #B8B5B0;
+      text-align: center;
+    }
+
+    .disp-footer a {
+      color: #C08A4D;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .disp-footer a:hover {
+      color: #A67640;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 576px) {
+      .disp-card {
+        padding: 32px 20px;
+        border-radius: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="disp-page">
+    <div class="disp-card">
+      <div class="flex justify-center mb-6">
+        <img alt="Los Choquitos Logo" class="h-20 w-auto object-contain" src="https://i.ibb.co/fdVnP0rY/logo-los-choquitos.png"/>
+      </div>
+      
+      <h1 class="text-3xl font-display font-bold text-[#0B0B0B] mb-3">Disponibilidad en Tiempo Real</h1>
+      <p class="text-[14px] text-[#B8B5B0] leading-relaxed max-w-md mx-auto mb-8 font-light">
+        Consulta aquí las fechas libres para reservar. Elige tu plan y selecciona los días directamente en el calendario.
+      </p>
+
+      <!-- Selector de Plan Segmentado -->
+      <div class="flex justify-center mb-8 bg-[#0B0B0B]/5 p-1.5 rounded-full max-w-[280px] mx-auto border border-[#0B0B0B]/5">
+        <button type="button" id="plan-estadia" class="flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-gradient-to-r from-[#C08A4D] to-[#A67640] text-white shadow-sm cursor-pointer">Estadía</button>
+        <button type="button" id="plan-pasadia" class="flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#B8B5B0] hover:text-[#0B0B0B] cursor-pointer">Pasadía</button>
+      </div>
+
+      <!-- Div del calendario -->
+      <div id="custom-calendar-root"></div>
+
+      <!-- Leyenda -->
+      <div class="calendar-legend">
+        <div class="calendar-legend-item">
+          <span class="legend-swatch legend-swatch--available"></span>
+          <span>Disponible</span>
+        </div>
+        <div class="calendar-legend-item">
+          <span class="legend-swatch legend-swatch--selected"></span>
+          <span>Seleccionado</span>
+        </div>
+        <div class="calendar-legend-item">
+          <span class="legend-swatch legend-swatch--blocked"></span>
+          <span>Reservado / Ocupado</span>
+        </div>
+      </div>
+
+      <!-- Botón de WhatsApp para reservar -->
+      <div class="mt-8 flex justify-center">
+        <a href="#" id="btn-cotizar" class="btn-luxury text-white px-10 py-4 rounded-full text-xs font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 max-w-[320px] w-full block text-center">
+          Selecciona tus fechas
+        </a>
+      </div>
+    </div>
+
+    <footer class="disp-footer">
+      <p>© 2026 Cabaña Los Choquitos. ¿Deseas ver toda la información? <a href="index.html">Volver al inicio</a>.</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      let selectionStart = null;
+      let selectionEnd = null;
+      let hoverDate = null;
+      let selectedPlan = 'Hospedaje'; // 'Hospedaje' (Estadía) o 'Pasadía'
+      
+      const calendarRenderFns = [];
+      const calendarRebuildFns = [];
+      let bookedEvents = [];
+      const todayDate = new Date();
+      todayDate.setHours(0, 0, 0, 0);
+
+      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const monthShortNames = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+      const dayNames = ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"];
+
+      // Setup segment selectors
+      const tabEstadia = document.getElementById('plan-estadia');
+      const tabPasadia = document.getElementById('plan-pasadia');
+
+      if (tabEstadia && tabPasadia) {
+        tabEstadia.addEventListener('click', () => {
+          if (selectedPlan !== 'Hospedaje') {
+            selectedPlan = 'Hospedaje';
+            tabEstadia.className = "flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-gradient-to-r from-[#C08A4D] to-[#A67640] text-white shadow-sm cursor-pointer";
+            tabPasadia.className = "flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#B8B5B0] hover:text-[#0B0B0B] cursor-pointer";
+            selectionStart = null;
+            selectionEnd = null;
+            updateCalendarOutputs();
+            calendarRenderFns.forEach(fn => fn());
+          }
+        });
+
+        tabPasadia.addEventListener('click', () => {
+          if (selectedPlan !== 'Pasadía') {
+            selectedPlan = 'Pasadía';
+            tabPasadia.className = "flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-gradient-to-r from-[#C08A4D] to-[#A67640] text-white shadow-sm cursor-pointer";
+            tabEstadia.className = "flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#B8B5B0] hover:text-[#0B0B0B] cursor-pointer";
+            selectionStart = null;
+            selectionEnd = null;
+            updateCalendarOutputs();
+            calendarRenderFns.forEach(fn => fn());
+          }
+        });
+      }
+
+      function formatFull(d) {
+        if (!d) return "";
+        return `${d.getDate()} ${monthShortNames[d.getMonth()]}`;
+      }
+
+      function updateCalendarOutputs() {
+        const btnCotizar = document.getElementById('btn-cotizar');
+        if (!btnCotizar) return;
+
+        const isComplete = (selectedPlan === 'Hospedaje' && selectionStart && selectionEnd) ||
+                           (selectedPlan === 'Pasadía' && selectionStart);
+
+        if (isComplete) {
+          let dateStr = "";
+          let planName = "";
+          if (selectedPlan === 'Hospedaje') {
+            dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
+            planName = "Estadía";
+          } else {
+            dateStr = formatFull(selectionStart);
+            planName = "Pasadía";
+          }
+
+          const msg = `¡Hola Cabaña Los Choquitos! 🌴✨\nMe gustaría consultar la disponibilidad con los siguientes detalles:\n\n📅 Plan: ${planName}\n📆 Fechas: ${dateStr}\n\nQuedo atento para continuar con mi reserva. ¡Muchas gracias!`;
+
+          btnCotizar.textContent = 'Reservar en WhatsApp';
+          btnCotizar.href = `https://api.whatsapp.com/send/?phone=573019769687&text=${encodeURIComponent(msg)}`;
+          btnCotizar.target = '_blank';
+          btnCotizar.style.pointerEvents = 'auto';
+          btnCotizar.style.opacity = '1';
+        } else {
+          btnCotizar.textContent = 'Selecciona tus fechas';
+          btnCotizar.style.pointerEvents = 'none';
+          btnCotizar.style.opacity = '0.4';
+          btnCotizar.removeAttribute('href');
+        }
+      }
+
+      function updateCalendarSelection(calRoot) {
+        const days = calRoot.querySelectorAll('.calendar-day:not(.empty)');
+        days.forEach(dayEl => {
+          const cellDate = new Date(Number(dayEl.dataset.timestamp));
+          const isPast = dayEl.classList.contains('past');
+          const isBlocked = dayEl.classList.contains('blocked');
+          const isToday = dayEl.classList.contains('today');
+
+          dayEl.className = 'calendar-day';
+          if (isPast) dayEl.classList.add('past');
+          if (isBlocked) dayEl.classList.add('blocked');
+          if (isToday) dayEl.classList.add('today');
+
+          if (selectionStart && cellDate.getTime() === selectionStart.getTime()) {
+            dayEl.classList.add('selected', 'range-start');
+          }
+          if (selectionEnd && cellDate.getTime() === selectionEnd.getTime()) {
+            dayEl.classList.add('selected', 'range-end');
+          }
+
+          if (selectionStart && selectionEnd) {
+            if (selectionStart.getTime() === selectionEnd.getTime()) {
+              if (cellDate.getTime() === selectionStart.getTime()) {
+                dayEl.classList.add('selected', 'range-start', 'range-end');
+              }
+            } else {
+              if (cellDate.getTime() > selectionStart.getTime() && cellDate.getTime() < selectionEnd.getTime()) {
+                dayEl.classList.add('in-range');
+              }
+            }
+          } else if (selectionStart && !selectionEnd && hoverDate) {
+            if (cellDate.getTime() > selectionStart.getTime() && cellDate.getTime() <= hoverDate.getTime()) {
+              dayEl.classList.add('in-range');
+              if (cellDate.getTime() === hoverDate.getTime()) dayEl.classList.add('range-end');
+            }
+          }
+        });
+      }
+
+      function buildCalendarInstance(rootId) {
+        const calRoot = document.getElementById(rootId);
+        if (!calRoot) return;
+
+        let calMonthDate = new Date();
+        calMonthDate.setDate(1);
+
+        const renderInstance = () => {
+          calRoot.innerHTML = '';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'custom-calendar';
+
+          const header = document.createElement('div');
+          header.className = 'calendar-header';
+
+          const prevBtn = document.createElement('button');
+          prevBtn.className = 'calendar-nav';
+          prevBtn.type = 'button';
+          prevBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>';
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            calMonthDate.setMonth(calMonthDate.getMonth() - 1);
+            renderInstance();
+          });
+
+          const nextBtn = document.createElement('button');
+          nextBtn.className = 'calendar-nav';
+          nextBtn.type = 'button';
+          nextBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>';
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            calMonthDate.setMonth(calMonthDate.getMonth() + 1);
+            renderInstance();
+          });
+
+          const title = document.createElement('h3');
+          title.textContent = `${monthNames[calMonthDate.getMonth()]} ${calMonthDate.getFullYear()}`;
+
+          header.appendChild(prevBtn);
+          header.appendChild(title);
+          header.appendChild(nextBtn);
+          wrapper.appendChild(header);
+
+          const gridHeader = document.createElement('div');
+          gridHeader.className = 'calendar-grid-header';
+          dayNames.forEach(day => {
+            const d = document.createElement('div');
+            d.textContent = day;
+            gridHeader.appendChild(d);
+          });
+          wrapper.appendChild(gridHeader);
+
+          const grid = document.createElement('div');
+          grid.className = 'calendar-grid';
+
+          const year = calMonthDate.getFullYear();
+          const month = calMonthDate.getMonth();
+          const firstDayIndex = new Date(year, month, 1).getDay();
+          const lastDay = new Date(year, month + 1, 0).getDate();
+
+          for (let i = 0; i < firstDayIndex; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'calendar-day empty';
+            grid.appendChild(emptyCell);
+          }
+
+          for (let i = 1; i <= lastDay; i++) {
+            const cellDate = new Date(year, month, i);
+            const dayEl = document.createElement('div');
+            dayEl.className = 'calendar-day';
+            dayEl.textContent = i;
+            dayEl.dataset.timestamp = cellDate.getTime();
+
+            if (cellDate.getTime() === todayDate.getTime()) {
+              dayEl.classList.add('today');
+            }
+            if (cellDate.getTime() < todayDate.getTime()) {
+              dayEl.classList.add('past');
+            } else if (isDateBooked(cellDate)) {
+              dayEl.classList.add('blocked');
+            } else {
+              dayEl.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (selectedPlan !== 'Hospedaje') {
+                  selectionStart = cellDate;
+                  selectionEnd = cellDate;
+                } else {
+                  if (!selectionStart) {
+                    selectionStart = cellDate;
+                    selectionEnd = null;
+                  } else {
+                    if (cellDate.getTime() === selectionStart.getTime()) {
+                      selectionStart = null;
+                      selectionEnd = null;
+                    } else if (cellDate.getTime() < selectionStart.getTime()) {
+                      selectionStart = cellDate;
+                      selectionEnd = null;
+                    } else {
+                      if (hasBlockedDatesBetween(selectionStart, cellDate)) {
+                        selectionStart = cellDate;
+                        selectionEnd = null;
+                      } else {
+                        selectionEnd = cellDate;
+                      }
+                    }
+                  }
+                }
+                updateCalendarOutputs();
+                calendarRenderFns.forEach(fn => fn());
+              });
+
+              dayEl.addEventListener('mouseenter', () => {
+                if (selectedPlan === 'Hospedaje' && selectionStart && !selectionEnd && cellDate.getTime() > selectionStart.getTime()) {
+                  if (!hasBlockedDatesBetween(selectionStart, cellDate)) {
+                    if (!hoverDate || hoverDate.getTime() !== cellDate.getTime()) {
+                      hoverDate = cellDate;
+                      calendarRenderFns.forEach(fn => fn());
+                    }
+                  } else {
+                    if (hoverDate !== null) {
+                      hoverDate = null;
+                      calendarRenderFns.forEach(fn => fn());
+                    }
+                  }
+                }
+              });
+            }
+            grid.appendChild(dayEl);
+          }
+
+          wrapper.appendChild(grid);
+
+          grid.addEventListener('mouseleave', () => {
+            if (selectionStart && !selectionEnd) {
+              hoverDate = null;
+              calendarRenderFns.forEach(fn => fn());
+            }
+          });
+
+          calRoot.appendChild(wrapper);
+          updateCalendarSelection(calRoot);
+        };
+
+        calendarRenderFns.push(() => {
+          updateCalendarSelection(calRoot);
+        });
+
+        calendarRebuildFns.push(() => {
+          renderInstance();
+        });
+
+        renderInstance();
+      }
+
+      async function fetchBookedEvents() {
+        const calendarUrl = 'https://calendar.google.com/calendar/ical/canaguates228%40gmail.com/public/basic.ics';
+        const proxies = [
+          'https://corsproxy.io/?' + calendarUrl,
+          'https://api.allorigins.win/raw?url=' + encodeURIComponent(calendarUrl)
+        ];
+
+        for (const proxyUrl of proxies) {
+          try {
+            const response = await fetch(proxyUrl, { cache: 'no-store' });
+            if (!response.ok) continue;
+            const text = await response.text();
+            if (!text.includes('BEGIN:VCALENDAR')) continue;
+            bookedEvents = parseICal(text);
+            calendarRebuildFns.forEach(fn => fn());
+            return;
+          } catch (error) {
+            console.warn('Proxy fallido:', proxyUrl, error.message);
+          }
+        }
+        console.error('No se pudo sincronizar el calendario.');
+      }
+
+      function isDateBooked(dateObj) {
+        const dayStart = new Date(dateObj);
+        dayStart.setHours(0, 0, 0, 0);
+        const dayEnd = new Date(dayStart);
+        dayEnd.setDate(dayEnd.getDate() + 1);
+
+        return bookedEvents.some(event => {
+          const eventStart = new Date(event.start);
+          const eventEnd = new Date(event.end);
+          return eventStart < dayEnd && eventEnd > dayStart;
+        });
+      }
+
+      function hasBlockedDatesBetween(start, end) {
+        if (!start || !end) return false;
+        const startTime = start.getTime();
+        const endTime = end.getTime();
+        const temp = new Date(startTime);
+        temp.setDate(temp.getDate() + 1);
+        temp.setHours(0, 0, 0, 0);
+
+        while (temp.getTime() < endTime) {
+          if (isDateBooked(temp)) {
+            return true;
+          }
+          temp.setDate(temp.getDate() + 1);
+        }
+        return false;
+      }
+
+      function parseICal(icalText) {
+        const unfolded = icalText.replace(/\r?\n[ \t]/g, '');
+        const lines = unfolded.split(/\r?\n/);
+        const events = [];
+        let currentEvent = null;
+
+        for (let line of lines) {
+          if (line.startsWith('BEGIN:VEVENT')) {
+            currentEvent = {};
+          } else if (line.startsWith('END:VEVENT')) {
+            if (currentEvent && currentEvent.start && currentEvent.end) {
+              events.push(currentEvent);
+            }
+            currentEvent = null;
+          } else if (currentEvent) {
+            if (line.startsWith('DTSTART')) {
+              const idx = line.indexOf(':');
+              const params = line.substring(0, idx);
+              const val = line.substring(idx + 1).trim();
+              const hasTZID = params.includes('TZID');
+              currentEvent.start = parseICalDate(val, hasTZID);
+            } else if (line.startsWith('DTEND')) {
+              const idx = line.indexOf(':');
+              const params = line.substring(0, idx);
+              const val = line.substring(idx + 1).trim();
+              const hasTZID = params.includes('TZID');
+              currentEvent.end = parseICalDate(val, hasTZID);
+            }
+          }
+        }
+        return events;
+      }
+
+      function parseICalDate(icalStr, hasTZID) {
+        icalStr = icalStr.trim();
+        const isUTC = icalStr.endsWith('Z');
+        const cleanStr = icalStr.replace(/[^0-9T]/g, '');
+        const y = parseInt(cleanStr.substring(0, 4));
+        const m = parseInt(cleanStr.substring(4, 6)) - 1;
+        const d = parseInt(cleanStr.substring(6, 8));
+
+        if (cleanStr.includes('T')) {
+          const h = parseInt(cleanStr.substring(9, 11)) || 0;
+          const min = parseInt(cleanStr.substring(11, 13)) || 0;
+          const s = parseInt(cleanStr.substring(13, 15)) || 0;
+
+          if (isUTC) {
+            return new Date(Date.UTC(y, m, d, h, min, s));
+          } else if (hasTZID) {
+            return new Date(Date.UTC(y, m, d, h + 5, min, s));
+          } else {
+            return new Date(y, m, d, h, min, s);
+          }
+        } else {
+          return new Date(y, m, d, 0, 0, 0);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        buildCalendarInstance('custom-calendar-root');
+        fetchBookedEvents();
+      });
+    })();
+  </script>
+</body>
+
+</html>
