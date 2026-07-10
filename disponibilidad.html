@@ -324,6 +324,21 @@
     (function () {
       "use strict";
 
+      const appScriptUrl = ''; // Configurar con la URL de Google Apps Script Web App cuando esté disponible
+      
+      function registrarEvento(datos) {
+        if (!appScriptUrl) {
+          console.info('Simulación de evento (local):', datos);
+          return;
+        }
+        fetch(appScriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos)
+        }).catch(err => console.warn('Error al registrar evento:', err));
+      }
+
       let selectionStart = null;
       let selectionEnd = null;
       let hoverDate = null;
@@ -713,6 +728,30 @@
       }
 
       document.addEventListener('DOMContentLoaded', () => {
+        registrarEvento({ event: 'pageview' });
+        
+        const btnCotizar = document.getElementById('btn-cotizar');
+        if (btnCotizar) {
+          btnCotizar.addEventListener('click', () => {
+            if (btnCotizar.style.pointerEvents !== 'none' && selectionStart) {
+              let dateStr = "";
+              if (selectedPlan === 'Hospedaje') {
+                dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
+              } else {
+                dateStr = formatFull(selectionStart);
+              }
+              registrarEvento({
+                event: 'lead_submit',
+                nombre: 'Cliente Web (Historias)',
+                plan: selectedPlan === 'Hospedaje' ? 'Estadía' : 'Pasadía',
+                invitados: 'No especificado',
+                fechas: dateStr,
+                origen: 'Página Disponibilidad/Historias'
+              });
+            }
+          });
+        }
+
         buildCalendarInstance('custom-calendar-root');
         fetchBookedEvents();
       });

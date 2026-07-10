@@ -966,6 +966,33 @@
 
     <!--email_off-->
     <script>
+        const appScriptUrl = ''; // Configurar con la URL de Google Apps Script Web App cuando esté disponible
+        
+        function registrarEvento(datos) {
+            if (!appScriptUrl) {
+                console.info('Simulación de evento (local):', datos);
+                return;
+            }
+            fetch(appScriptUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            }).catch(err => console.warn('Error al registrar evento:', err));
+        }
+
+        // Registrar Page View al cargar la página y click en WhatsApp flotante
+        window.addEventListener('DOMContentLoaded', () => {
+            registrarEvento({ event: 'pageview' });
+            
+            const floatingWaBtn = document.getElementById('whatsapp-floating-btn');
+            if (floatingWaBtn) {
+                floatingWaBtn.addEventListener('click', () => {
+                    registrarEvento({ event: 'whatsapp_click' });
+                });
+            }
+        });
+
         // Header Scroll
         const header = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
@@ -1051,6 +1078,17 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
             }
 
             const msg = `✨ *NUEVA CONSULTA WEB* ✨\n\n👤 *Nombre:* ${name}\n🗓️ *Fecha:* ${dateStr}\n👥 *Invitados:* ${pax}\n🏛️ *Interés:* ${service}`;
+            
+            // Registrar Lead antes de abrir WhatsApp
+            registrarEvento({
+                event: 'lead_submit',
+                nombre: name,
+                plan: service,
+                invitados: pax,
+                fechas: dateStr,
+                origen: 'Formulario Tradicional'
+            });
+
             window.open(`https://wa.me/573019769687?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
@@ -1683,6 +1721,17 @@ document.getElementById('close-mobile-menu').addEventListener('click', toggleMob
 
             if (btnConfirm) {
                 btnConfirm.addEventListener('click', () => {
+                    // Registrar Lead antes de abrir WhatsApp
+                    const dateStr = document.getElementById('summary-dates').textContent;
+                    registrarEvento({
+                        event: 'lead_submit',
+                        nombre: wizName.value.trim(),
+                        plan: selectedPlan === 'Hospedaje' ? 'Estadía Total' : selectedPlan,
+                        invitados: wizPax.value,
+                        fechas: dateStr,
+                        origen: 'Asistente/Wizard'
+                    });
+
                     window.open(`https://wa.me/573019769687?text=${encodeURIComponent(finalSummaryStr)}`, '_blank');
                 });
             }
@@ -1699,7 +1748,7 @@ function revealTour() {
 }
     </script>
     <!--/email_off-->
-    <a href="https://wa.me/573019769687?text=Hola%20Los%20Choquitos,%20estoy%20interesado%20en%20reservar." 
+    <a id="whatsapp-floating-btn" href="https://wa.me/573019769687?text=Hola%20Los%20Choquitos,%20estoy%20interesado%20en%20reservar." 
    target="_blank" 
    class="fixed bottom-6 right-6 z-[90] animate-breathe group">
     
