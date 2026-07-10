@@ -287,30 +287,131 @@
         <button type="button" id="plan-pasadia" class="flex-1 py-2.5 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#B8B5B0] hover:text-[#0B0B0B] cursor-pointer">Pasadía</button>
       </div>
 
-      <!-- Div del calendario -->
-      <div id="custom-calendar-root"></div>
+      <!-- Wizard Container -->
+      <div id="wizard-container" class="relative overflow-hidden min-h-[460px] mt-6 sm:mt-10">
+          
+          <!-- Paso 1: Calendario -->
+          <div id="wizard-step-1" class="wizard-step relative w-full transition-all duration-500 transform translate-x-0 opacity-100">
+              <!-- Div del calendario -->
+              <div id="custom-calendar-root"></div>
 
-      <!-- Leyenda -->
-      <div class="calendar-legend">
-        <div class="calendar-legend-item">
-          <span class="legend-swatch legend-swatch--available"></span>
-          <span>Disponible</span>
-        </div>
-        <div class="calendar-legend-item">
-          <span class="legend-swatch legend-swatch--selected"></span>
-          <span>Seleccionado</span>
-        </div>
-        <div class="calendar-legend-item">
-          <span class="legend-swatch legend-swatch--blocked"></span>
-          <span>Reservado / Ocupado</span>
-        </div>
-      </div>
+              <!-- Leyenda -->
+              <div class="calendar-legend">
+                <div class="calendar-legend-item">
+                  <span class="legend-swatch legend-swatch--available"></span>
+                  <span>Disponible</span>
+                </div>
+                <div class="calendar-legend-item">
+                  <span class="legend-swatch legend-swatch--selected"></span>
+                  <span>Seleccionado</span>
+                </div>
+                <div class="calendar-legend-item">
+                  <span class="legend-swatch legend-swatch--blocked"></span>
+                  <span>Reservado / Ocupado</span>
+                </div>
+              </div>
 
-      <!-- Botón de WhatsApp para reservar -->
-      <div class="mt-8 flex justify-center">
-        <a href="#" id="btn-cotizar" class="btn-luxury text-white px-10 py-4 rounded-full text-xs font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 max-w-[320px] w-full block text-center">
-          Selecciona tus fechas
-        </a>
+              <!-- Botón de WhatsApp para reservar -->
+              <div class="mt-8 flex justify-center">
+                <button type="button" id="btn-cotizar" class="btn-luxury text-white px-10 py-4 rounded-full text-xs font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 max-w-[320px] w-full block text-center">
+                  Selecciona tus fechas
+                </button>
+              </div>
+          </div>
+
+          <!-- Paso 2: Datos del Usuario -->
+          <div id="wizard-step-2" class="wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4">
+              <div class="bg-white/95 border border-[#C08A4D]/25 rounded-[2.5rem] p-6 sm:p-10 w-full max-w-md shadow-[0_20px_50px_rgba(192,138,77,0.12)] text-left backdrop-blur-md relative overflow-hidden">
+                  <!-- Luxury Decorative Accent Line -->
+                  <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C08A4D] to-[#A67640]"></div>
+                  
+                  <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C08A4D] block text-center mb-2">Paso 2 de 3</span>
+                  <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#0B0B0B] mb-6 sm:mb-8 text-center">Tus Datos</h3>
+                  
+                  <div class="space-y-4 sm:space-y-6">
+                      <div>
+                          <label for="wizard-name" class="text-[10px] font-bold uppercase tracking-widest text-[#B8B5B0] ml-2 block mb-2">Nombre completo</label>
+                          <div class="relative">
+                              <input type="text" id="wizard-name" required placeholder="¿Cómo te llamas?" class="w-full bg-[#F6F5F2]/50 border border-[#C08A4D]/10 rounded-2xl px-6 py-4 text-[#0B0B0B] focus:border-[#C08A4D] focus:ring-2 focus:ring-[#C08A4D]/20 focus:bg-white transition-all text-sm shadow-sm placeholder-[#B8B5B0]/60">
+                          </div>
+                      </div>
+                      <div>
+                          <label for="wizard-pax" class="text-[10px] font-bold uppercase tracking-widest text-[#B8B5B0] ml-2 block mb-2">Número de Invitados</label>
+                          <div class="flex items-center justify-between bg-[#F6F5F2]/50 border border-[#C08A4D]/10 rounded-2xl p-1.5 shadow-sm">
+                              <button type="button" id="btn-pax-minus" class="w-12 h-12 rounded-xl bg-white text-[#C08A4D] font-bold hover:bg-[#C08A4D] hover:text-white hover:shadow-md transition-all flex items-center justify-center cursor-pointer border border-[#C08A4D]/5">
+                                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                              </button>
+                              <input type="number" id="wizard-pax" value="8" min="1" max="50" required class="w-20 bg-transparent border-none text-center font-display font-bold text-[#0B0B0B] text-xl focus:ring-0 appearance-none pointer-events-none">
+                              <button type="button" id="btn-pax-plus" class="w-12 h-12 rounded-xl bg-white text-[#C08A4D] font-bold hover:bg-[#C08A4D] hover:text-white hover:shadow-md transition-all flex items-center justify-center cursor-pointer border border-[#C08A4D]/5">
+                                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="flex flex-col space-y-4 w-full mt-8 sm:mt-10">
+                      <button type="button" id="btn-next-2" class="btn-luxury text-white w-full py-4 rounded-full text-[10px] font-bold shadow-lg uppercase tracking-widest pointer-events-none opacity-40 transition-all cursor-pointer flex items-center justify-center gap-2 group">
+                          Continuar
+                          <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                      </button>
+                      <button type="button" id="btn-prev-1" class="text-[#B8B5B0] hover:text-[#0B0B0B] font-bold uppercase tracking-widest text-[10px] py-2 transition-colors cursor-pointer flex items-center justify-center gap-2 group mx-auto">
+                          <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                          Volver
+                      </button>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Paso 3: Resumen -->
+          <div id="wizard-step-3" class="wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4">
+              <div class="bg-white/95 border border-[#C08A4D]/25 rounded-[2.5rem] p-6 sm:p-10 w-full max-w-md shadow-[0_20px_50px_rgba(192,138,77,0.12)] text-center backdrop-blur-md relative overflow-hidden">
+                  <!-- Luxury Decorative Accent Line -->
+                  <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#C08A4D] to-[#A67640]"></div>
+                  
+                  <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C08A4D] block mb-2">Paso 3 de 3</span>
+                  <h3 class="font-display font-bold text-2xl sm:text-3xl text-[#0B0B0B] mb-2">Tu Estadía</h3>
+                  <p class="text-[#B8B5B0] text-xs mb-8 font-light">Verifica la información antes de continuar</p>
+                  
+                  <!-- Ticket-style summary card -->
+                  <div class="bg-[#F6F5F2]/50 border border-[#C08A4D]/10 rounded-3xl p-6 mb-8 text-left shadow-sm relative overflow-hidden">
+                      <!-- Top Row: Plan & Guests -->
+                      <div class="flex justify-between items-start border-b border-[#C08A4D]/10 pb-4 gap-4">
+                          <div class="flex flex-col space-y-1">
+                              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C08A4D]">Plan Seleccionado</span>
+                              <span id="summary-plan" class="font-display font-bold text-2xl text-[#0B0B0B]"></span>
+                          </div>
+                          <div class="flex flex-col items-end space-y-1">
+                              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C08A4D]">Invitados</span>
+                              <span id="summary-pax" class="font-display font-bold text-base text-[#0B0B0B] bg-white border border-[#C08A4D]/10 px-3 py-1 rounded-xl shadow-sm"></span>
+                          </div>
+                      </div>
+                      
+                      <!-- Content Details -->
+                      <div class="space-y-4 pt-4">
+                          <div class="flex flex-col space-y-1">
+                              <span class="text-[10px] font-bold uppercase tracking-widest text-[#B8B5B0]">Huésped Principal</span>
+                              <span id="summary-name" class="font-semibold text-[#0B0B0B] text-base truncate max-w-[280px]"></span>
+                          </div>
+                          
+                          <div class="flex flex-col space-y-1 border-t border-[#C08A4D]/5 pt-3">
+                              <span class="text-[10px] font-bold uppercase tracking-widest text-[#B8B5B0]">Fechas Seleccionadas</span>
+                              <span id="summary-dates" class="font-display font-bold text-xl text-[#C08A4D]"></span>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="flex flex-col space-y-4 w-full">
+                      <button type="button" id="btn-confirm-whatsapp" class="bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white px-8 py-5 rounded-full text-xs font-bold shadow-[0_10px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_15px_25px_rgba(16,185,129,0.4)] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:-translate-y-0.5 active:translate-y-0 w-full cursor-pointer">
+                          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                      <span>Confirmar en WhatsApp</span>
+                  </button>
+                  
+                  <button type="button" id="btn-prev-2" class="text-[#B8B5B0] hover:text-[#0B0B0B] font-bold uppercase tracking-widest text-[10px] py-2 transition-colors cursor-pointer flex items-center justify-center gap-2 group mx-auto">
+                      <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                      Volver
+                  </button>
+              </div>
+          </div>
       </div>
     </div>
 
@@ -343,6 +444,19 @@
       let selectionEnd = null;
       let hoverDate = null;
       let selectedPlan = 'Hospedaje'; // 'Hospedaje' (Estadía) o 'Pasadía'
+      
+      const step1 = document.getElementById('wizard-step-1');
+      const step2 = document.getElementById('wizard-step-2');
+      const step3 = document.getElementById('wizard-step-3');
+      const wizName = document.getElementById('wizard-name');
+      const wizPax = document.getElementById('wizard-pax');
+      const btnNext2 = document.getElementById('btn-next-2');
+      const btnPrev1 = document.getElementById('btn-prev-1');
+      const btnPrev2 = document.getElementById('btn-prev-2');
+      const btnPaxMinus = document.getElementById('btn-pax-minus');
+      const btnPaxPlus = document.getElementById('btn-pax-plus');
+      const btnConfirm = document.getElementById('btn-confirm-whatsapp');
+      let finalSummaryStr = "";
       
       const calendarRenderFns = [];
       const calendarRebuildFns = [];
@@ -397,29 +511,61 @@
                            (selectedPlan === 'Pasadía' && selectionStart);
 
         if (isComplete) {
-          let dateStr = "";
-          let planName = "";
-          if (selectedPlan === 'Hospedaje') {
-            dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
-            planName = "Estadía";
-          } else {
-            dateStr = formatFull(selectionStart);
-            planName = "Pasadía";
-          }
-
-          const msg = `¡Hola Cabaña Los Choquitos! 🌴✨\nMe gustaría consultar la disponibilidad con los siguientes detalles:\n\n📅 Plan: ${planName}\n📆 Fechas: ${dateStr}\n\nQuedo atento para continuar con mi reserva. ¡Muchas gracias!`;
-
-          btnCotizar.textContent = 'Reservar en WhatsApp';
-          btnCotizar.href = `https://api.whatsapp.com/send/?phone=573019769687&text=${encodeURIComponent(msg)}`;
-          btnCotizar.target = '_blank';
+          btnCotizar.textContent = 'Completar Cotización';
           btnCotizar.style.pointerEvents = 'auto';
           btnCotizar.style.opacity = '1';
         } else {
           btnCotizar.textContent = 'Selecciona tus fechas';
           btnCotizar.style.pointerEvents = 'none';
           btnCotizar.style.opacity = '0.4';
-          btnCotizar.removeAttribute('href');
         }
+      }
+
+      function goToStep(step) {
+        if (step === 1) {
+          step1.className = "wizard-step relative w-full transition-all duration-500 transform translate-x-0 opacity-100";
+          step2.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4";
+          step3.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4";
+        } else if (step === 2) {
+          step1.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform -translate-x-full opacity-0 pointer-events-none";
+          step2.className = "wizard-step relative w-full transition-all duration-500 transform translate-x-0 opacity-100 flex flex-col justify-center items-center px-4";
+          step3.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4";
+          setTimeout(() => { if (wizName) wizName.focus(); }, 500);
+        } else if (step === 3) {
+          populateSummary();
+          step1.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform -translate-x-full opacity-0 pointer-events-none";
+          step2.className = "wizard-step absolute inset-0 w-full transition-all duration-500 transform -translate-x-full opacity-0 pointer-events-none flex flex-col justify-center items-center px-4";
+          step3.className = "wizard-step relative w-full transition-all duration-500 transform translate-x-0 opacity-100 flex flex-col justify-center items-center px-4";
+        }
+      }
+
+      function validateStep2() {
+        const nameVal = wizName ? wizName.value.trim() : "";
+        if (nameVal.length >= 3) {
+          btnNext2.classList.remove('opacity-40', 'pointer-events-none');
+          btnNext2.style.pointerEvents = 'auto';
+          btnNext2.style.opacity = '1';
+        } else {
+          btnNext2.classList.add('opacity-40', 'pointer-events-none');
+          btnNext2.style.pointerEvents = 'none';
+          btnNext2.style.opacity = '0.4';
+        }
+      }
+
+      function populateSummary() {
+        let dateStr = "";
+        if (selectedPlan === 'Hospedaje') {
+          dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
+        } else {
+          dateStr = formatFull(selectionStart);
+        }
+
+        document.getElementById('summary-plan').textContent = selectedPlan === 'Hospedaje' ? 'Estadía' : 'Pasadía';
+        document.getElementById('summary-dates').textContent = dateStr;
+        document.getElementById('summary-name').textContent = wizName.value.trim();
+        document.getElementById('summary-pax').textContent = wizPax.value;
+
+        finalSummaryStr = `¡Hola Cabaña Los Choquitos! 🌴✨\nMe gustaría consultar disponibilidad con los siguientes detalles:\n\n👤 *Nombre:* ${wizName.value.trim()}\n🗓️ *Fecha:* ${dateStr}\n👥 *Invitados:* ${wizPax.value}\n🏛️ *Interés:* ${selectedPlan === 'Hospedaje' ? 'Estadía' : selectedPlan}\n\nQuedo atento para continuar con mi reserva. ¡Muchas gracias!`;
       }
 
       function updateCalendarSelection(calRoot) {
@@ -732,23 +878,44 @@
         
         const btnCotizar = document.getElementById('btn-cotizar');
         if (btnCotizar) {
-          btnCotizar.addEventListener('click', () => {
-            if (btnCotizar.style.pointerEvents !== 'none' && selectionStart) {
-              let dateStr = "";
-              if (selectedPlan === 'Hospedaje') {
-                dateStr = `${formatFull(selectionStart)} al ${formatFull(selectionEnd)}`;
-              } else {
-                dateStr = formatFull(selectionStart);
-              }
-              registrarEvento({
-                event: 'lead_submit',
-                nombre: 'Cliente Web (Historias)',
-                plan: selectedPlan === 'Hospedaje' ? 'Estadía' : 'Pasadía',
-                invitados: 'No especificado',
-                fechas: dateStr,
-                origen: 'Página Disponibilidad/Historias'
-              });
-            }
+          btnCotizar.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToStep(2);
+          });
+        }
+
+        if (btnPaxMinus && wizPax) {
+          btnPaxMinus.addEventListener('click', () => {
+            let val = parseInt(wizPax.value) || 1;
+            if (val > 1) wizPax.value = val - 1;
+          });
+        }
+        if (btnPaxPlus && wizPax) {
+          btnPaxPlus.addEventListener('click', () => {
+            let val = parseInt(wizPax.value) || 1;
+            if (val < 50) wizPax.value = val + 1;
+          });
+        }
+
+        if (wizName) wizName.addEventListener('input', validateStep2);
+        if (btnNext2) btnNext2.addEventListener('click', () => goToStep(3));
+        if (btnPrev1) btnPrev1.addEventListener('click', () => goToStep(1));
+        if (btnPrev2) btnPrev2.addEventListener('click', () => goToStep(2));
+
+        if (btnConfirm) {
+          btnConfirm.addEventListener('click', () => {
+            // Registrar Lead antes de abrir WhatsApp
+            const dateStr = document.getElementById('summary-dates').textContent;
+            registrarEvento({
+              event: 'lead_submit',
+              nombre: wizName.value.trim(),
+              plan: selectedPlan === 'Hospedaje' ? 'Estadía' : 'Pasadía',
+              invitados: wizPax.value,
+              fechas: dateStr,
+              origen: 'Página Disponibilidad/Historias (Wizard)'
+            });
+
+            window.open(`https://api.whatsapp.com/send/?phone=573019769687&text=${encodeURIComponent(finalSummaryStr)}`, '_blank');
           });
         }
 
